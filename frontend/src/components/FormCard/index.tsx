@@ -57,11 +57,11 @@
                  <h3>{movie?.title}</h3>
                  <form className="dsmovie-form" onSubmit={handleSubmit}>
                      <div className="form-group dsmovie-form-group">
-                         <label htmlFor="email">Informe seu email</label>
+                         <label htmlFor="email">Inform your email</label>
                          <input type="email" className="form-control" id="email" />
                      </div>
                      <div className="form-group dsmovie-form-group">
-                         <label htmlFor="score">Informe sua avaliação</label>
+                         <label htmlFor="score">Inform your evaluate</label>
                          <select className="form-control" id="score">
                              <option>1</option>
                              <option>2</option>
@@ -71,11 +71,11 @@
                          </select>
                      </div>
                      <div className="dsmovie-form-btn-container">
-                         <button type="submit" className="btn btn-primary dsmovie-btn">Salvar</button>
+                         <button type="submit" className="btn btn-primary dsmovie-btn">Save</button>
                      </div>
                  </form >
                  <Link to="/">
-                     <button className="btn btn-primary dsmovie-btn mt-3">Cancelar</button>
+                     <button className="btn btn-primary dsmovie-btn mt-3">Cancel</button>
                  </Link>
              </div >
          </div >
