@@ -3,12 +3,16 @@ package com.devsuperior.dsmovie.entities;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "tb_movie")
@@ -32,6 +36,10 @@ public class Movie {
 		this.image = image;
 	}
 
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "movie")
+    @JsonManagedReference
+	MovieLanguage movieLanguage;
+	
 	
 	// A movie can have many scores
 	@OneToMany(mappedBy = "id.movie") // { ScorePk id { Movie movie } }

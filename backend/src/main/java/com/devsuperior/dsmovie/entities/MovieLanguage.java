@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "tb_movie_language")
 public class MovieLanguage {
@@ -20,8 +22,10 @@ public class MovieLanguage {
 	private String titleBrazil;
 	private String titleSpanish;
 	
+	
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id", referencedColumnName = "id")
+	@JoinColumn(name = "movie_id")
+    @JsonBackReference
 	private Movie movie;
 	
 	public MovieLanguage(){}
