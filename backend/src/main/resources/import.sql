@@ -35,36 +35,35 @@ INSERT INTO tb_movie(score, count, title, image) VALUES (0, 0, 'Dune', 'https://
 INSERT INTO tb_movie(score, count, title, image) VALUES (0, 0, 'Aquaman', 'https://www.themoviedb.org/t/p/w533_and_h300_bestv2/2cUsDz4TzFYHrKktT1bKHHQ7Cgm.jpg');
 
 
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('The Witcher', 'aaa', 1);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Venom: Tempo de Carnificina', 'bbb', 2);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Shang-Chi e a Lenda dos Dez Anéis', 'ccc', 3);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Matrix Resurrections', 'ddd', 4);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Shang-Chi e a Lenda dos Dez Anéis', 'eee', 5);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Matrix Resurrections', 'fff', 6);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Shang-Chi e a Lenda dos Dez Anéis', 'ggg', 7);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Matrix Resurrections', 'hhh', 8);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Shang-Chi e a Lenda dos Dez Anéis', 'iii', 9);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Matrix Resurrections', 'jjj', 10);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Shang-Chi e a Lenda dos Dez Anéis', 'kkk', 11);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Matrix Resurrections', 'lll', 12);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Shang-Chi e a Lenda dos Dez Anéis', 'mmm', 13);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Matrix Resurrections', 'nnn', 14);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Shang-Chi e a Lenda dos Dez Anéis', 'ooo', 15);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Matrix Resurrections', 'ppp', 16);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Shang-Chi e a Lenda dos Dez Anéis', 'qqq', 17);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Matrix Resurrections', 'rrr', 18);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Shang-Chi e a Lenda dos Dez Anéis', 'sss', 19);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Matrix Resurrections', 'ttt', 20);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Shang-Chi e a Lenda dos Dez Anéis', 'uuu', 21);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Matrix Resurrections', 'vvv', 22);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Shang-Chi e a Lenda dos Dez Anéis', 'xxx', 23);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Matrix Resurrections', 'zzz', 24);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Shang-Chi e a Lenda dos Dez Anéis', 'aaa2', 25);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Matrix Resurrections', 'bbb2', 26);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Shang-Chi e a Lenda dos Dez Anéis', 'ccc2', 27);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Matrix Resurrections', 'ddd2', 28);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Shang-Chi e a Lenda dos Dez Anéis', 'eee2', 29);
- INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Matrix Resurrections', 'fff2', 30);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('The Witcher', 'The Witcher', 1);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Venom: Tempo de Carnificina', 'Venom: Que haya un tiempo de ejecución de carnicería', 2);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('O Espetacular Homem-Aranha 2: A Ascensão do Electro', 'El sorprendente Hombre-Araña 2: La amenaza de Electro', 3);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Matrix: Resurrections (Ressurreição)', 'Matrix Resurrecciones', 4);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Shang-Chi e a Lenda dos Dez Anéis', 'Shang-Chi y la leyenda de los Diez Anillos', 5);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Django Livre', 'Django Desencadenado', 6);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Titanic', 'Titanic', 7);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('O Lobo de Wall Street', 'El lobo de Wall Street', 8);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Aves de Rapina - Arlequina e sua emancipação fantabulosa', 'Aves de presa (y la fantabulosa emancipación de Harley Quinn)', 9);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Rogue One: Uma História Star Wars', 'Rogue One: Una historia de Star Wars', 10);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Star Wars: A Guerra dos Clones', 'Star Wars: La Guerra de los Clones', 11);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Star Wars: Episódio I - A Ameaça Fantasma', 'Star Wars: Episodio I - La amenaza fantasma', 12);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Vingadores: Ultimato', 'Vingadores: Ultimato', 13);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Thor', 'Thor', 14);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Cisne Negro', 'Cisne negro', 15);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('O Silêncio dos Inocentes', 'El silencio de los corderos', 16);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Clube da Luta', 'El club de la lucha', 17);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Guerra Mundial Z', 'Guerra Mundial Z', 18);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Harry Potter e as Relíquias da Morte - Parte 1', 'Harry Potter y las Reliquias de la Muerte - Parte 1', 19);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Harry Potter e a Pedra Filosofal', 'Harry Potter y la Piedra Filosofal', 20);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Alice no Pais das Maravilhas', 'Alicia en el país de las Maravillas', 21);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Animais Fantásticos e Onde Habitam', 'Animales fantásticos y dónde encontrarlos', 22);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('A teoria de tudo', 'La teoría del todo', 23);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('O Livro de Boba Fett', 'El libro de Boba Fett', 24);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('O Último Duelo', 'El Último Duelo', 25);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Interestelar', 'Interestelar', 26);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Contato', 'Contact (Película)', 27);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Duna', 'Duna', 28);
+ INSERT INTO tb_movie_language(title_brazil, title_spanish, movie_id) VALUES ('Aquaman', 'Aquaman', 29);
 
 
 
