@@ -12,7 +12,8 @@ import com.devsuperior.dsmovie.entities.MovieLanguage;
 
 public interface FullMovieRepository extends JpaRepository<Movie, Long> {	
 	
-	@Query("SELECT new com.devsuperior.dsmovie.dto.FullMovieDTO(obj.id, obj.title, obj.count, obj.image, obj.score, a.titleBrazil, a.titleSpanish) FROM Movie obj INNER JOIN obj.movieLanguage a")
+	@Query("SELECT new com.devsuperior.dsmovie.dto.FullMovieDTO(obj.id, obj.title, obj.count, obj.image, obj.score, a.titleBrazil, a.titleSpanish) "
+			+ "FROM Movie obj JOIN obj.movieLanguage a ON obj.id = a.id")
 	
 	Page<FullMovieDTO> findAllPaged(Pageable pageable);
 }

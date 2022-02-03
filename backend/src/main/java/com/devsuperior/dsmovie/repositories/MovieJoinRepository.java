@@ -12,5 +12,5 @@ import com.devsuperior.dsmovie.entities.MovieLanguage;
 public interface MovieJoinRepository extends JpaRepository<Movie, Long> {
 	
 	
-	
+	// Create join using JPQL
 }

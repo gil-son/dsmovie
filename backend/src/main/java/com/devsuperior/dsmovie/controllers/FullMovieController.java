@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.devsuperior.dsmovie.dto.FullMovieDTO;
 import com.devsuperior.dsmovie.dto.MovieDTO;
 import com.devsuperior.dsmovie.dto.MovieLanguageDTO;
 import com.devsuperior.dsmovie.entities.Movie;
@@ -22,18 +23,17 @@ import com.devsuperior.dsmovie.repositories.MovieRepository;
 public class FullMovieController {
 
 	@Autowired
-	FullMovieRepository fullmovieRepository;
+	FullMovieRepository fullMovieRepository;
+	
+	
 	
 	
 	
 	@GetMapping
-	public Page<MovieDTO> findAll(Pageable pageable){
-		Page<Movie> result = fullmovieRepository.findAll(pageable);
-		Page<MovieDTO> pageDTO = result.map(x -> new MovieDTO(x));
-		return pageDTO;
+	public Page<FullMovieDTO> findAll(Pageable pageable){
+		Page<FullMovieDTO> result = fullMovieRepository.findAllPaged(pageable);
+		return result;
 	}
-	
-	 
 	 
 	/*
 	@GetMapping
