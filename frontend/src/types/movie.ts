@@ -19,22 +19,3 @@ export type MoviePage = {
     numberOfElements: number;
     empty: boolean;
 }
-
-export type MoviePageL = {
-    content: MovieLanguage[];
-    last: boolean;
-    totalPages: number;
-    totalElements: number;
-    size: number;
-    number: number;
-    first: boolean;
-    numberOfElements: number;
-    empty: boolean;
-}
-
-export type MovieLanguage = {
-    id: number;
-    titleBrazil: string;
-    titleSpanish: string;
-    movieId: number;
-}

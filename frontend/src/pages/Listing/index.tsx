@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import MovieCard from "components/MovieCard";
 import Pagination from "components/Pagination";
 import { BASE_URL } from "utils/requests";
-import { MoviePageL, MoviePage } from "types/movie";
+import { MoviePage } from "types/movie";
 
 function Listing() {
 
@@ -24,18 +24,12 @@ function Listing() {
     
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/movies?size=12&page=${pageNumber}&sort=title`)
+        axios.get(`${BASE_URL}/full-movies-titles?size=12&page=${pageNumber}&sort=title`)
             .then(response => {
                 const data = response.data as MoviePage;
                 setPage(data);
-            });
-
-            axios.get(`${BASE_URL}/movies-languages?size=12&page=${pageNumber}&sort=titleBrazil`)
-            .then(response => {
-                const data = response.data as MoviePage;
                 console.log(data);
             });
-
     }, [pageNumber]);
     
     const handlePageChange = (newPageNumber : number) => {
