@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.devsuperior.dsmovie.dto.FullMovieDTO;
 import com.devsuperior.dsmovie.dto.MovieDTO;
 import com.devsuperior.dsmovie.dto.MovieLanguageDTO;
 import com.devsuperior.dsmovie.entities.Movie;
 import com.devsuperior.dsmovie.entities.MovieLanguage;
+import com.devsuperior.dsmovie.repositories.FullMovieRepository;
 import com.devsuperior.dsmovie.repositories.MovieLanguageRepository;
 
 @RestController
@@ -23,7 +25,15 @@ import com.devsuperior.dsmovie.repositories.MovieLanguageRepository;
 public class MovieLanguageController {
 
 	@Autowired
-	MovieLanguageRepository movieLanguageRepository;
+	FullMovieRepository fullMovieRepository;
+	
+	
+	
+	@GetMapping
+	public Page<FullMovieDTO> findAll(Pageable pageable){
+		Page<FullMovieDTO> result = fullMovieRepository.findAllPaged(pageable);
+		return result;
+	}
 	
 	/*
 	@GetMapping
@@ -39,13 +49,5 @@ public class MovieLanguageController {
 		return ResponseEntity.ok().body(listmovieLanguageDTO);
 	}
 	*/
-	
-	@GetMapping
-	public Page<MovieLanguageDTO> findAll(Pageable pageable){
-		Page<MovieLanguage> result = movieLanguageRepository.findAll(pageable);
-		Page<MovieLanguageDTO> pageDTO = result.map(x -> new MovieLanguageDTO(x));
-		return pageDTO;
-	}
-	
 	
 }
