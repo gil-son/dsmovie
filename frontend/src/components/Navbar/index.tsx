@@ -1,7 +1,31 @@
 import {ReactComponent as GithubIcon} from "assets/img/github.svg"; // tsconfig.json "baseUrl": "./src"
+import { useState, useEffect } from "react";
 import "./styles.css";
 
 function NavBar(){
+
+  const[title, setTitle] = useState("");
+  
+
+  function ClickedBrazil(){
+    setTitle("brazil");
+    localStorage.setItem("theTitle", "brazil");
+    // document.location.reload();
+  }
+
+  function ClickedSpanish(){
+    setTitle("spanish");
+    localStorage.setItem("theTitle", "spanish");
+    // document.location.reload();
+  }
+
+  function ClickedRemove(){
+    setTitle("english");
+    localStorage.setItem("theTitle", "english");
+    // document.location.reload();
+
+  }
+
     return(
         <header>
         <nav className="container">
@@ -13,6 +37,9 @@ function NavBar(){
                 <p className="dsmovie-contact-link">/gil-son</p>
               </div>
             </a>
+            <button onClick={ClickedRemove} >english</button>
+            <button onClick={ClickedBrazil} >brazil</button>
+            <button onClick={ClickedSpanish} >spanish</button>
           </div>
         </nav>
       </header>
