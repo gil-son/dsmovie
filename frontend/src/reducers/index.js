@@ -1,17 +1,26 @@
 import {combineReducers} from 'redux';
 
-var initialState = ["brazil","spanish","english"]
+/*
+var brazil= ["brazil"]
+var spanish= ["spanish"]
+var english= ["english"]
+*/
 
-function titleReducer( state = initialState, action){
+function titleReducer( state = "", action){
      switch(action.type){
-        case "BRAZIL": return { titleObj: action.value};  
-        case "SPANISH": return { titleObj: "spanish"};  
+        case "brazil": return "brazil";  
+        case "spanish": return "spanish";  
+        case "english": return "english";
         default: return state;
-    }
+     }
+    
 }
-
-
 
 const reducers = combineReducers({titleReducer});
 
 export default reducers;
+
+
+/*
+        
+*/
