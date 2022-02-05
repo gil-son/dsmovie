@@ -3,18 +3,23 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Movie } from "types/movie";
 
+
 type Props = {
     movie: Movie;
 }
 
 function MovieCard( { movie } : Props) {
     
-    const[titles, setTitle] = useState("");
 
-    const title = localStorage.getItem("theTitle");
-    
+  //console.log("title card: ", title)
+
+  var title = localStorage.getItem("theTitle");
+
     useEffect(() => {
+
         
+       
+
     }, [title]);
 
 

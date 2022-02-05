@@ -1,26 +1,31 @@
 import {ReactComponent as GithubIcon} from "assets/img/github.svg"; // tsconfig.json "baseUrl": "./src"
 import { useState, useEffect } from "react";
 import "./styles.css";
+import {useSelector, useDispatch} from 'react-redux';
+
 
 function NavBar(){
 
-  const[title, setTitle] = useState("");
+  //const[title, setTitle] = useState("");
   
+  //const title = useSelector( (state) => state);
+  //const dispatch = useDispatch();
+  //console.log("title nav: ", title)
 
   function ClickedBrazil(){
-    setTitle("brazil");
+    //dispatch( {type: "brazil"});
     localStorage.setItem("theTitle", "brazil");
     // document.location.reload();
   }
 
   function ClickedSpanish(){
-    setTitle("spanish");
+    //dispatch( {type: "spanish"});
     localStorage.setItem("theTitle", "spanish");
     // document.location.reload();
   }
 
   function ClickedRemove(){
-    setTitle("english");
+    //dispatch( {type: "english"});
     localStorage.setItem("theTitle", "english");
     // document.location.reload();
 
