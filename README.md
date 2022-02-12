@@ -4,16 +4,16 @@
 <div align="center">
  <table>
   <tr>
-    <td><img  width="20%" src="https://flagicons.lipis.dev/flags/4x3/br.svg" /></td>
-    <td><img  width="20%" src="https://flagicons.lipis.dev/flags/4x3/us.svg" /></td>
-    <td><img  width="20%" src="https://flagicons.lipis.dev/flags/4x3/es.svg" /></td>
-    <td><img  width="20%" src="https://flagicons.lipis.dev/flags/4x3/jp.svg" /></td>
+   <td><a href="https://github.com/gil-son/dsmovie/tree/main/subtitled-by-language/Brasil" ><img  width="20%" src="https://flagicons.lipis.dev/flags/4x3/br.svg" /></a></td>
+    <td><a href="https://github.com/gil-son/dsmovie/tree/main/subtitled-by-language/English" ><img  width="20%" src="https://flagicons.lipis.dev/flags/4x3/us.svg" /></a></td>
+    <td><a href="https://github.com/gil-son/dsmovie/tree/main/subtitled-by-language/España" ><img  width="20%" src="https://flagicons.lipis.dev/flags/4x3/es.svg" /></a></td>
+    <td><a href="https://github.com/gil-son/dsmovie/tree/main/subtitled-by-language/日本" ><img  width="20%" src="https://flagicons.lipis.dev/flags/4x3/jp.svg" /></a></td>
   </tr>
   <tr>
-    <td>Ler em Português brasileiro</td>
-    <td>English reading</td> 
-    <td>Lectura en español</td>
-    <td>日本語で読む</td>
+    <td><a href="https://github.com/gil-son/dsmovie/tree/main/subtitled-by-language/Brasil" >Ler em Português brasileiro</a></td>
+    <td><a href="https://github.com/gil-son/dsmovie/tree/main/subtitled-by-language/English" >English reading</a></td> 
+    <td><a href="https://github.com/gil-son/dsmovie/tree/main/subtitled-by-language/España" >Lectura en español</a></td>
+    <td><a href="https://github.com/gil-son/dsmovie/tree/main/subtitled-by-language/日本" >日本語で読む</a></td>
   </tr>
 </table> 
   
