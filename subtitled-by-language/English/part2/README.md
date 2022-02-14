@@ -144,7 +144,7 @@ INSERT INTO tb_score(movie_id, user_id, value) VALUES (2, 3, 4.0);
 
 4) Recalculate the average rating of the movie and save to the database.
 
-![Image](https://raw.githubusercontent.com/devsuperior/bds-assets/main/sds/dsmovie-objs.png "Pattern layers")
+![Image](https://thumbs2.imgbox.com/52/9d/CAyz9cXM_t.png "Pattern layers")
 
 - **COMMIT: Save score**
 
