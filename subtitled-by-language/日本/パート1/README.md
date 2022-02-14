@@ -1,43 +1,41 @@
-# ![DevSuperior logo](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/devsuperior-logo-small.png) Semana Spring React - Episódio 1
->  *Crie um app inédito para seu portfólio com as tecnologias mais demandadas do mercado*
+# ![Logotipo de DevSuperior](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/devsuperior-logo-small.png)春の反応週間-エピソード1
+> *市場で最も需要の高いテクノロジーを使用して、ポートフォリオに前例のないアプリを作成します*
 
-## Realização
-[DevSuperior - Escola de programação](https://devsuperior.com.br)
+## 実現
 
-[![DevSuperior no Instagram](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/ig-icon.png)](https://instagram.com/devsuperior.ig)
-[![DevSuperior no Youtube](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/yt-icon.png)](https://youtube.com/devsuperior)
+[DevSuperior-プログラミングスクール](https://devsuperior.com.br)
 
-## Objetivos do projeto para esta aula
-- Criar projetos backend e frontend
-- Salvar os projeto no Github em monorepo
-- Montar o visual estático do front end
+[![DevSuperior Instagram](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/ig-icon.png)](https://instagram.com/devsuperior.ig)
+[![DevSuperior Youtube](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/yt-icon.png)](https://youtube.com/devsuperior)
 
-## AVISO: as aulas ficarão disponíveis somente até domingo às 23h59
+## このクラスのプロジェクトの目標
 
-## AVISO: Instruções sobre certificado no Github do [aqui](https://github.com/devsuperior/sds-dsmovie/tree/main/_certificado)
+- バックエンドおよびフロントエンドプロジェクトを作成する
+- プロジェクトをGithubのmonorepoに保存します
+- フロントエンドの静的な外観を組み立てます
 
-## Checklist
+## チェックリスト
 
-### Passo: preparação
+### ステップ：準備
 
-#### Dica: extensões do VS Code
+#### ヒント：VS Code Extensions
 
-#### Conferir Node (16 LTS) e Yarn
+#### チェック Node (16 LTS) と Yarn
 
-[Guia de instalação das ferramentas](https://github.com/devsuperior/sds-dsmovie/tree/main/_instalacao)
+[ハードウェアインストールガイド](https://github.com/devsuperior/sds-dsmovie/tree/main/_instalacao)
 
 ```bash
 node -v
 yarn -v
 ```
 
-Caso precise instalar o Yarn, faça o comando:
+Yarnをインストールする必要がある場合は、次のコマンドを実行します。
 
 ```
 npm install --global yarn
 ```
 
-#### Design Figma
+#### デザイン Figma
 
 https://www.figma.com/file/hpQuzpGHq2MmrI87xnfMoT/DSMovie1
 
@@ -48,33 +46,33 @@ https://www.figma.com/file/gEZYKqJJs2gEhIB6k9ksGB/DSMovie3
 https://www.figma.com/file/hyovBMIxwrn2Bb5MZLrxHL/DSMovie4
 
 
-### Passo: criar projeto ReactJS
+### ステップ：ReactJS プロジェクトを作成する 
 
-- ATENÇÃO: esta será a estrutura de pastas que vamos criar:
+- 注意：これは、作成するフォルダー構造になります。
 
-![DevSuperior no Instagram](https://raw.githubusercontent.com/devsuperior/bds-assets/main/sds/pastas-dsmovie.png)
+![DevSuperior Instagram](https://raw.githubusercontent.com/devsuperior/bds-assets/main/sds/pastas-dsmovie.png)
 
 ```
 yarn create react-app frontend --template typescript
 ```
-OU:
+また:
 ```
 npx create-react-app frontend --template typescript
 ```
 
-IMPORTANTE: deletar subpasta .git
-- *Lembrete: ver extensões e arquivos ocultos*
+重要：.git サブフォルダーを削除してください 
+- *注意：隠しファイルと拡張子を参照してください*
 
-### Passo: criar projeto Spring Boot
+### ステップ：Spring Boot プロジェクトを作成する
 
-- Criar projeto Spring Boot no `Spring Initializr` com as seguintes dependências:
+- 次の依存関係を持つ `Spring Initializr`で Spring Boot プロジェクトを作成します
   - Web
   - JPA
   - H2
   - Postgres
   - Security
 
-- Ajuste no arquivo pom.xml:
+- pom.xmlファイルで調整します:
 
 ```xml
 <plugin>
@@ -84,21 +82,19 @@ IMPORTANTE: deletar subpasta .git
 </plugin>
 ```
 
-  - Botão direito no projeto -> Maven -> Update project (force update)
+  -プロジェクトを右クリック-> Maven->プロジェクトの更新（強制更新）
 
-### Passo: salvar primeira versão no Github
-
-[Playlist de introdução e configuração do Git/Github](https://www.youtube.com/watch?v=KLG-jC1fh28&list=PLNuUvBZGBA8nDTr8QRMgoT_l3XNt_BbWj)
+###ステップ：最初のバージョンをGithubに保存します
 
 ```bash
-git config --global user.name <seu nome>
-git config --global user.email <seu email>
+git config --global user.name <あなたの名前>
+git config --global user.email <あなたのメール>
 
 git init
 
 git add .
 
-git commit -m "Project created"
+git commit -m "プロジェクトが作成されました"
 
 git remote ...
 ```
@@ -113,19 +109,19 @@ git branch -M main
 git push -u origin main
 ```
 
-### Passo: "limpar" o projeto ReactJS
+### ステップ：ReactJSプロジェクトを「クリーンアップ」する
 
-- Deletar arquivos não usados
+- 未使用のファイルを削除します
 
 - **COMMIT: Project clean**
 
-### Passo: adicionar Bootstrap e CSS ao projeto
+###ステップ：ブートストラップとCSSをプロジェクトに追加します
 - Bootstrap
 ```
 yarn add bootstrap@5.1.3
 ```
 
-- Arquivo index.css
+- index.cssファイル
 ```css
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
@@ -147,7 +143,7 @@ a, a:hover {
   color: unset;
 }
 ```
-- Arquivo index.tsx
+- index.tsxファイル
 
 ```
 import 'bootstrap/dist/css/bootstrap.css';
@@ -156,9 +152,9 @@ import './index.css';
 
 - **COMMIT: Bootstrap**
 
-### Passo: Componente Navbar
+### ステップ：Navbarコンポーネント
 
-ATENÇÃO: no arquivo tsconfig.json: `"baseUrl": "./src"` (reinicie o app)
+注意：tsconfig.jsonファイル内: `"baseUrl": "./src"` （アプリを再起動します）
 
 ```js
 <header>
@@ -210,9 +206,9 @@ header {
 
 - **COMMIT: Navbar**
 
-### Passo: Rotas
+### ステップ：ルート
 
-- Instalar React Router DOM
+- React RouterDOMをインストールします
 ```
 yarn add react-router-dom@6.2.1 @types/react-router-dom@5.3.2
 ```
@@ -246,7 +242,7 @@ export default App;
 
 - **COMMIT: Routes**
 
-### Passo: Tela de formulário
+### ステップ：フォーム画面
 
 ```js
 const movie = {
@@ -265,11 +261,11 @@ const movie = {
         <h3>"The Witcher"</h3>
         <form className="dsmovie-form">
             <div className="form-group dsmovie-form-group">
-                <label htmlFor="email">Informe seu email</label>
+                <label htmlFor="email">あなたの電子メールを知らせなさい</label>
                 <input type="email" className="form-control" id="email" />
             </div>
             <div className="form-group dsmovie-form-group">
-                <label htmlFor="score">Informe sua avaliação</label>
+                <label htmlFor="score">レビューを報告する</label>
                 <select className="form-control" id="score">
                     <option>1</option>
                     <option>2</option>
@@ -279,10 +275,10 @@ const movie = {
                 </select>
             </div>
             <div className="dsmovie-form-btn-container">
-                <button type="submit" className="btn btn-primary dsmovie-btn">Salvar</button>
+                <button type="submit" className="btn btn-primary dsmovie-btn">保存する</button>
             </div>
         </form >
-        <button className="btn btn-primary dsmovie-btn mt-3">Cancelar</button>
+        <button className="btn btn-primary dsmovie-btn mt-3">キャンセル</button>
     </div >
 </div >
 ```
@@ -349,7 +345,7 @@ const movie = {
 
 - **COMMIT: Form layout**
 
-### Passo: Pagination
+### ステップ：ページネーション
 
 ```js
 <div className="dsmovie-pagination-container">
@@ -423,7 +419,7 @@ const movie = {
 
 - **COMMIT: Pagination layout**
 
-### Passo: MovieCard
+### ステップ：MovieCard
 
 #### MovieStars
 
@@ -456,7 +452,7 @@ const movie = {
 <div className="dsmovie-score-container">
     <p className="dsmovie-score-value">{score > 0 ? score.toFixed(1) : '-'}</p>
     <MovieStars />
-    <p className="dsmovie-score-count">{count} avaliações</p>
+    <p className="dsmovie-score-count">{count} 評価</p>
 </div>
 ```
 
@@ -496,19 +492,11 @@ const movie = {
 
 - **COMMIT: MovieCard**
 
-### Passo: Navegação dos botões
+### ステップ：ボタンナビゲーション
 
 - **COMMIT: Navigation buttons**
 
 
-## PARABÉNS!
+## とても良い！
 
-![Parabéns!](https://raw.githubusercontent.com/devsuperior/bds-assets/main/img/trophy.png)
-
-- Quero muito saber seu feedback
-  - O que você está achando da nossa abordagem?
-  - Você está conseguindo acompanhar?
-  - O que você está achando do evento?
-- Participe
-  - Comente no Instagram e marque a gente @devsuperior.ig
-  - Divulgue seu projeto no Linkedin e marque a DevSuperior
+![とても良い](https://raw.githubusercontent.com/devsuperior/bds-assets/main/img/trophy.png)
