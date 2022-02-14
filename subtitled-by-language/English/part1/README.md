@@ -1,43 +1,39 @@
-# ![DevSuperior logo](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/devsuperior-logo-small.png) Semana Spring React - Episódio 1
->  *Crie um app inédito para seu portfólio com as tecnologias mais demandadas do mercado*
+# ![DevSuperior logo](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/devsuperior-logo-small.png) Spring React Week - Episode 1
+>  *Create an unprecedented app for your portfolio with the most demanded technologies on the market*
 
-## Realização
-[DevSuperior - Escola de programação](https://devsuperior.com.br)
+## Realization
+[DevSuperior - Programming School](https://devsuperior.com.br)
 
-[![DevSuperior no Instagram](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/ig-icon.png)](https://instagram.com/devsuperior.ig)
-[![DevSuperior no Youtube](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/yt-icon.png)](https://youtube.com/devsuperior)
+[![DevSuperior on Instagram](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/ig-icon.png)](https://instagram.com/devsuperior.ig)
+[![DevSuperior on Youtube](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/yt-icon.png)](https://youtube.com/devsuperior)
 
-## Objetivos do projeto para esta aula
-- Criar projetos backend e frontend
-- Salvar os projeto no Github em monorepo
-- Montar o visual estático do front end
+## Project goals for this class
+- Create backend and frontend projects
+- Save projects on Github in monorepo
+- Assemble the static look of the front end
 
-## AVISO: as aulas ficarão disponíveis somente até domingo às 23h59
+## Check list
 
-## AVISO: Instruções sobre certificado no Github do [aqui](https://github.com/devsuperior/sds-dsmovie/tree/main/_certificado)
+### Step: preparation
 
-## Checklist
+#### Tip: VS Code Extensions
 
-### Passo: preparação
+#### Check Node (16 LTS) and Yarn
 
-#### Dica: extensões do VS Code
-
-#### Conferir Node (16 LTS) e Yarn
-
-[Guia de instalação das ferramentas](https://github.com/devsuperior/sds-dsmovie/tree/main/_instalacao)
+[Tools Installation Guide](https://github.com/devsuperior/sds-dsmovie/tree/main/_instalacao)
 
 ```bash
 node -v
 yarn -v
 ```
 
-Caso precise instalar o Yarn, faça o comando:
+If you need to install Yarn, run the command:
 
 ```
 npm install --global yarn
 ```
 
-#### Design Figma
+#### Figma Design
 
 https://www.figma.com/file/hpQuzpGHq2MmrI87xnfMoT/DSMovie1
 
@@ -48,33 +44,33 @@ https://www.figma.com/file/gEZYKqJJs2gEhIB6k9ksGB/DSMovie3
 https://www.figma.com/file/hyovBMIxwrn2Bb5MZLrxHL/DSMovie4
 
 
-### Passo: criar projeto ReactJS
+### Step: create ReactJS project
 
-- ATENÇÃO: esta será a estrutura de pastas que vamos criar:
+- ATTENTION: this will be the folder structure that we are going to create:
 
-![DevSuperior no Instagram](https://raw.githubusercontent.com/devsuperior/bds-assets/main/sds/pastas-dsmovie.png)
+![DevSuperior on Instagram](https://raw.githubusercontent.com/devsuperior/bds-assets/main/sds/pastas-dsmovie.png)
 
 ```
 yarn create react-app frontend --template typescript
 ```
-OU:
+OR:
 ```
 npx create-react-app frontend --template typescript
 ```
 
-IMPORTANTE: deletar subpasta .git
-- *Lembrete: ver extensões e arquivos ocultos*
+IMPORTANT: delete .git subfolder
+- *Reminder: see hidden files and extensions*
 
-### Passo: criar projeto Spring Boot
+### Step: create Spring Boot project
 
-- Criar projeto Spring Boot no `Spring Initializr` com as seguintes dependências:
+- Create Spring Boot project in `Spring Initializr` with the following dependencies:
   - Web
   - JPA
   - H2
   - Postgres
   - Security
 
-- Ajuste no arquivo pom.xml:
+- Adjust in the pom.xml file:
 
 ```xml
 <plugin>
@@ -84,11 +80,9 @@ IMPORTANTE: deletar subpasta .git
 </plugin>
 ```
 
-  - Botão direito no projeto -> Maven -> Update project (force update)
+  - Right click on the project -> Maven -> Update project (force update)
 
-### Passo: salvar primeira versão no Github
-
-[Playlist de introdução e configuração do Git/Github](https://www.youtube.com/watch?v=KLG-jC1fh28&list=PLNuUvBZGBA8nDTr8QRMgoT_l3XNt_BbWj)
+### Step: save first version on Github
 
 ```bash
 git config --global user.name <seu nome>
@@ -113,19 +107,19 @@ git branch -M main
 git push -u origin main
 ```
 
-### Passo: "limpar" o projeto ReactJS
+### Step: "clean up" the ReactJS project
 
-- Deletar arquivos não usados
+- Delete unused files
 
 - **COMMIT: Project clean**
 
-### Passo: adicionar Bootstrap e CSS ao projeto
+### Step: Add Bootstrap and CSS to the project
 - Bootstrap
 ```
 yarn add bootstrap@5.1.3
 ```
 
-- Arquivo index.css
+- File index.css
 ```css
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
@@ -147,7 +141,7 @@ a, a:hover {
   color: unset;
 }
 ```
-- Arquivo index.tsx
+- File index.tsx
 
 ```
 import 'bootstrap/dist/css/bootstrap.css';
@@ -156,9 +150,9 @@ import './index.css';
 
 - **COMMIT: Bootstrap**
 
-### Passo: Componente Navbar
+### Step: Navbar component
 
-ATENÇÃO: no arquivo tsconfig.json: `"baseUrl": "./src"` (reinicie o app)
+ATTENTION: in the tsconfig.json file: `"baseUrl": "./src"` (restart the app)
 
 ```js
 <header>
@@ -210,9 +204,9 @@ header {
 
 - **COMMIT: Navbar**
 
-### Passo: Rotas
+### Step: Routes
 
-- Instalar React Router DOM
+- Install React Router DOM
 ```
 yarn add react-router-dom@6.2.1 @types/react-router-dom@5.3.2
 ```
@@ -246,7 +240,7 @@ export default App;
 
 - **COMMIT: Routes**
 
-### Passo: Tela de formulário
+### Step: Form screen
 
 ```js
 const movie = {
@@ -349,7 +343,7 @@ const movie = {
 
 - **COMMIT: Form layout**
 
-### Passo: Pagination
+### Step: Pagination
 
 ```js
 <div className="dsmovie-pagination-container">
@@ -423,7 +417,7 @@ const movie = {
 
 - **COMMIT: Pagination layout**
 
-### Passo: MovieCard
+### Step: MovieCard
 
 #### MovieStars
 
@@ -496,19 +490,11 @@ const movie = {
 
 - **COMMIT: MovieCard**
 
-### Passo: Navegação dos botões
+### Step: Button navigation
 
 - **COMMIT: Navigation buttons**
 
 
-## PARABÉNS!
+## CONGRATULATION!
 
-![Parabéns!](https://raw.githubusercontent.com/devsuperior/bds-assets/main/img/trophy.png)
-
-- Quero muito saber seu feedback
-  - O que você está achando da nossa abordagem?
-  - Você está conseguindo acompanhar?
-  - O que você está achando do evento?
-- Participe
-  - Comente no Instagram e marque a gente @devsuperior.ig
-  - Divulgue seu projeto no Linkedin e marque a DevSuperior
+![congratulation!](https://raw.githubusercontent.com/devsuperior/bds-assets/main/img/trophy.png)
