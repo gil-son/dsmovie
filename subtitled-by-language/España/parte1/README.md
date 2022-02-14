@@ -1,43 +1,39 @@
-# ![DevSuperior logo](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/devsuperior-logo-small.png) Semana Spring React - Episódio 1
->  *Crie um app inédito para seu portfólio com as tecnologias mais demandadas do mercado*
+# ![Logotipo de DevSuperior](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/devsuperior-logo-small.png) Semana de Spring React - Episodio 1
+> *Crea una app inédita para tu portafolio con las tecnologías más demandadas del mercado*
 
-## Realização
-[DevSuperior - Escola de programação](https://devsuperior.com.br)
+## Realización
+[DevSuperior - Escuela de Programación](https://devsuperior.com.br)
 
-[![DevSuperior no Instagram](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/ig-icon.png)](https://instagram.com/devsuperior.ig)
-[![DevSuperior no Youtube](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/yt-icon.png)](https://youtube.com/devsuperior)
+[![DevSuperior en Instagram](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/ig-icon.png)](https://instagram.com/devsuperior.ig)
+[![DevSuperior en Youtube](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/yt-icon.png)](https://youtube.com/devsuperior)
 
-## Objetivos do projeto para esta aula
-- Criar projetos backend e frontend
-- Salvar os projeto no Github em monorepo
-- Montar o visual estático do front end
+## Objetivos del proyecto para esta clase
+- Crear proyectos backend y frontend
+- Guardar proyectos en Github en monorepo
+- Montar el aspecto estático de la parte delantera
 
-## AVISO: as aulas ficarão disponíveis somente até domingo às 23h59
+## Lista de verificación
 
-## AVISO: Instruções sobre certificado no Github do [aqui](https://github.com/devsuperior/sds-dsmovie/tree/main/_certificado)
+### Paso: preparación
 
-## Checklist
+#### Sugerencia: extensiones de código VS
 
-### Passo: preparação
+#### Comprobar nodo (16 LTS) e hilo
 
-#### Dica: extensões do VS Code
-
-#### Conferir Node (16 LTS) e Yarn
-
-[Guia de instalação das ferramentas](https://github.com/devsuperior/sds-dsmovie/tree/main/_instalacao)
+[Guía de instalación de herramientas](https://github.com/devsuperior/sds-dsmovie/tree/main/_instalacao)
 
 ```bash
 node -v
 yarn -v
 ```
 
-Caso precise instalar o Yarn, faça o comando:
+Si necesita instalar Yarn, ejecute el comando:
 
 ```
 npm install --global yarn
 ```
 
-#### Design Figma
+#### Diseño Figma
 
 https://www.figma.com/file/hpQuzpGHq2MmrI87xnfMoT/DSMovie1
 
@@ -48,33 +44,33 @@ https://www.figma.com/file/gEZYKqJJs2gEhIB6k9ksGB/DSMovie3
 https://www.figma.com/file/hyovBMIxwrn2Bb5MZLrxHL/DSMovie4
 
 
-### Passo: criar projeto ReactJS
+### Paso: crear proyecto ReactJS
 
-- ATENÇÃO: esta será a estrutura de pastas que vamos criar:
+- ATENCIÓN: esta será la estructura de carpetas que vamos a crear:
 
-![DevSuperior no Instagram](https://raw.githubusercontent.com/devsuperior/bds-assets/main/sds/pastas-dsmovie.png)
+![DevSuperior en Instagram](https://raw.githubusercontent.com/devsuperior/bds-assets/main/sds/pastas-dsmovie.png)
 
 ```
 yarn create react-app frontend --template typescript
 ```
-OU:
+U:
 ```
 npx create-react-app frontend --template typescript
 ```
 
-IMPORTANTE: deletar subpasta .git
-- *Lembrete: ver extensões e arquivos ocultos*
+IMPORTANTE: eliminar la subcarpeta .git
+- *Recordatorio: ver archivos y extensiones ocultos*
 
-### Passo: criar projeto Spring Boot
+### Paso: crear un proyecto Spring Boot
 
-- Criar projeto Spring Boot no `Spring Initializr` com as seguintes dependências:
+- Cree un proyecto Spring Boot en `Spring Initializr` con las siguientes dependencias:
   - Web
   - JPA
   - H2
   - Postgres
   - Security
 
-- Ajuste no arquivo pom.xml:
+- Ajustar en el archivo pom.xml:
 
 ```xml
 <plugin>
@@ -84,11 +80,11 @@ IMPORTANTE: deletar subpasta .git
 </plugin>
 ```
 
-  - Botão direito no projeto -> Maven -> Update project (force update)
+  - Haga clic derecho en el proyecto -> Maven -> Actualizar proyecto (actualización forzada)
 
-### Passo: salvar primeira versão no Github
+### Paso: guardar la primera versión en Github
 
-[Playlist de introdução e configuração do Git/Github](https://www.youtube.com/watch?v=KLG-jC1fh28&list=PLNuUvBZGBA8nDTr8QRMgoT_l3XNt_BbWj)
+[Git/Github Introducción y lista de reproducción de configuración](https://www.youtube.com/watch?v=KLG-jC1fh28&list=PLNuUvBZGBA8nDTr8QRMgoT_l3XNt_BbWj)
 
 ```bash
 git config --global user.name <seu nome>
@@ -113,19 +109,19 @@ git branch -M main
 git push -u origin main
 ```
 
-### Passo: "limpar" o projeto ReactJS
+### Paso: "limpiar" el proyecto ReactJS
 
-- Deletar arquivos não usados
+- Eliminar archivos no utilizados
 
-- **COMMIT: Project clean**
+- **COMPROMISO: Proyecto limpio**
 
-### Passo: adicionar Bootstrap e CSS ao projeto
-- Bootstrap
+### Paso: Agregar Bootstrap y CSS al proyecto
+- Arranque
 ```
 yarn add bootstrap@5.1.3
 ```
 
-- Arquivo index.css
+- Archivo index.css
 ```css
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
@@ -147,7 +143,7 @@ a, a:hover {
   color: unset;
 }
 ```
-- Arquivo index.tsx
+- Archivo index.tsx
 
 ```
 import 'bootstrap/dist/css/bootstrap.css';
@@ -156,9 +152,9 @@ import './index.css';
 
 - **COMMIT: Bootstrap**
 
-### Passo: Componente Navbar
+### Paso: Componente de la barra de navegación
 
-ATENÇÃO: no arquivo tsconfig.json: `"baseUrl": "./src"` (reinicie o app)
+ATENCIÓN: en el archivo tsconfig.json: `"baseUrl": "./src"` (reiniciar la aplicación)
 
 ```js
 <header>
@@ -210,7 +206,7 @@ header {
 
 - **COMMIT: Navbar**
 
-### Passo: Rotas
+### Paso: Rutas
 
 - Instalar React Router DOM
 ```
@@ -246,7 +242,7 @@ export default App;
 
 - **COMMIT: Routes**
 
-### Passo: Tela de formulário
+### Paso: Pantalla de formulario
 
 ```js
 const movie = {
@@ -349,7 +345,7 @@ const movie = {
 
 - **COMMIT: Form layout**
 
-### Passo: Pagination
+### Paso: Paginación
 
 ```js
 <div className="dsmovie-pagination-container">
@@ -423,7 +419,7 @@ const movie = {
 
 - **COMMIT: Pagination layout**
 
-### Passo: MovieCard
+### Paso: Tarjeta de película
 
 #### MovieStars
 
@@ -496,19 +492,11 @@ const movie = {
 
 - **COMMIT: MovieCard**
 
-### Passo: Navegação dos botões
+### Paso: Botón de navegación
 
 - **COMMIT: Navigation buttons**
 
 
-## PARABÉNS!
+## FELICIDADES!
 
-![Parabéns!](https://raw.githubusercontent.com/devsuperior/bds-assets/main/img/trophy.png)
-
-- Quero muito saber seu feedback
-  - O que você está achando da nossa abordagem?
-  - Você está conseguindo acompanhar?
-  - O que você está achando do evento?
-- Participe
-  - Comente no Instagram e marque a gente @devsuperior.ig
-  - Divulgue seu projeto no Linkedin e marque a DevSuperior
+![Felicidades!](https://raw.githubusercontent.com/devsuperior/bds-assets/main/img/trophy.png)
