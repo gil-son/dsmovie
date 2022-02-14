@@ -1,28 +1,23 @@
-# ![DevSuperior logo](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/devsuperior-logo-small.png) Semana Spring React - Episódio 2
->  *Crie um app inédito para seu portfólio com as tecnologias mais demandadas do mercado*
+# ![Logotipo de DevSuperior](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/devsuperior-logo-small.png) Semana de Spring React - Episodio 2
+> *Crea una app inédita para tu portafolio con las tecnologías más demandadas del mercado*
 
-## Realização
-[DevSuperior - Escola de programação](https://devsuperior.com.br)
+## Realización
+[DevSuperior - Escuela de Programación](https://devsuperior.com.br)
 
-[![DevSuperior no Instagram](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/ig-icon.png)](https://instagram.com/devsuperior.ig)
-[![DevSuperior no Youtube](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/yt-icon.png)](https://youtube.com/devsuperior)
+[![DevSuperior en Instagram](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/ig-icon.png)](https://instagram.com/devsuperior.ig)
+[![DevSuperior en Youtube](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/yt-icon.png)](https://youtube.com/devsuperior)
 
-## Objetivos do projeto para esta aula
-- Implementar o back end
-- Modelo de domínio
-- Acesso a banco de dados
-- Estruturar o back end no padrão camadas
-- Criar endpoints da API REST
-- Implantação na nuvem
+## Objetivos del proyecto para esta clase
+- Implementar el backend
+- Modelo de dominio
+- Acceso a la base de datos
+- Estructura la parte trasera en el patrón de capas.
+- Crear puntos finales de API REST
+- Despliegue en la nube
 
-## AVISO: as aulas ficarão disponíveis somente até domingo às 23h59
+## Lista de verificación
 
-## AVISO: Instruções sobre certificado no Github do [aqui](https://github.com/devsuperior/sds-dsmovie/tree/main/_certificado)
-
-
-## Checklist
-
-### Passo: configuração de segurança
+### Paso: configuración de seguridad
 
 ```java
 @Configuration
@@ -55,10 +50,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 ```
 - **COMMIT: Security config**
 
-### Passo: criar as entidades e o seed do banco
+### Paso: crear las entidades y el banco semilla
 
-#### Modelo conceitual
-![Image](https://raw.githubusercontent.com/devsuperior/bds-assets/main/sds/dsmovie-dominio.png "Modelo conceitual")
+#### Modelo conceptual
+![Image](https://raw.githubusercontent.com/devsuperior/bds-assets/main/sds/dsmovie-dominio.png "Modelo Conceptual")
 
 #### application.properties
 ```
@@ -130,11 +125,11 @@ INSERT INTO tb_score(movie_id, user_id, value) VALUES (2, 3, 4.0);
 
 - **COMMIT: Domain model, database seed**
 
-### Passo: Busca de filmes
+### Paso: Buscar películas
 
-#### Padrão camadas adotado
+#### Patrón de capas adoptado
 
-![Image](https://github.com/devsuperior/bds-assets/raw/main/sds/padrao-camadas.png "Padrão camadas")
+![Image](https://github.com/devsuperior/bds-assets/raw/main/sds/padrao-camadas.png "Patrón de Capas")
 
 - Criar repository
 - Criar DTO
@@ -143,28 +138,28 @@ INSERT INTO tb_score(movie_id, user_id, value) VALUES (2, 3, 4.0);
 - **COMMIT: Find movies**
 
 
-### Passo: Salvar avaliação
+### Paso: Guardar calificación
 
 #### Lógica:
 
-1) Informar email, id do filme e valor da avaliação (1 a 5).
+1) Informar correo electrónico, id de la película y valor de evaluación (1 a 5).
 
-2) Recuperar usuário do banco de dados pelo email. Se o usuário não existir, insira no banco.
+2) Recuperar el usuario de la base de datos por correo electrónico. Si el usuario no existe, introdúzcalo en el banco.
 
-3) Salvar a avaliação do usuário para o dado filme.
+3) Guardar calificación de usuario para la película dada.
 
-4) Recalcular a avaliação média do filme e salvar no banco de dados.
+4) Vuelva a calcular la calificación promedio de la película y guárdela en la base de datos.
 
-![Image](https://raw.githubusercontent.com/devsuperior/bds-assets/main/sds/dsmovie-objs.png "Padrão camadas")
+![Image](https://thumbs2.imgbox.com/fc/16/LoRwtJ56_t.png "Patrón de Capas")
 
 
 - **COMMIT: Save score**
 
-### Passo: Validação no Postgres local
+### Paso: Validación en Postgres local
 
-- Criar três perfis de projeto: test, dev, prod
-- Gerar script SQL no perfil dev
-- Testar projeto no banco Postgres local
+- Cree tres perfiles de proyecto: prueba, desarrollo, producción
+- Generar secuencia de comandos SQL en el perfil de desarrollo
+- Proyecto de prueba en la base de datos local de Postgres
 
 #### application-dev.properties
 ```
@@ -193,12 +188,12 @@ java.runtime.version=17
 
 - **COMMIT: First homolog**
 
-### Passo: Implantação no Heroku
-- Criar app no Heroku
-- Provisionar banco Postgres
-- Definir variável APP_PROFILE=prod
-- Conectar ao banco via pgAdmin
-- Criar seed do banco
+### Paso: implementar en Heroku
+- Crear aplicación en Heroku
+- Provisión de base de datos Postgres
+- Establecer APP_PROFILE=variable de producción
+- Conéctese al banco a través de pgAdmin
+- Crear semilla de banco
 
 ```bash
 heroku -v
@@ -209,30 +204,22 @@ git subtree push --prefix backend heroku main
 ```
 
 
-### Passo: implantação no Netlify
-- Deploy básico
-  - Base directory: frontend
-  - Build command: yarn build
-  - Publish directory: frontend/build
+### Paso: Implementación en Netlify
+- Implementación básica
+   - Directorio base: interfaz
+   - Comando de construcción: construcción de hilo
+   - Publicar directorio: frontend/build
 
 - Arquivo _redirects
 ```
 /* /index.html 200
 ```
 
-- Configurações adicionais
-  - Site settings -> Domain Management: (colocar o nome que você quiser)
-  - Deploys -> Trigger deploy
+- Ajustes adicionales
+   - Configuración del sitio -> Administración de dominios: (ponga el nombre que desee)
+   - Implementaciones -> Desencadenar implementación
 
 
-## PARABÉNS!
+## FELICIDADES!
 
-![Parabéns!](https://raw.githubusercontent.com/devsuperior/bds-assets/main/img/trophy.png)
-
-- Quero muito saber seu feedback
-  - O que você está achando da nossa abordagem?
-  - Você está conseguindo acompanhar?
-  - O que você está achando do evento?
-- Participe
-  - Comente na página da Semana Spring React
-  - Divulgue seu projeto no Linkedin e marque a DevSuperior
+![Felicidades!](https://raw.githubusercontent.com/devsuperior/bds-assets/main/img/trophy.png)
