@@ -1,37 +1,33 @@
-# ![DevSuperior logo](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/devsuperior-logo-small.png) Semana Spring React - Episódio 3
->  *Crie um app inédito para seu portfólio com as tecnologias mais demandadas do mercado*
+# ![DevSuperior logo](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/devsuperior-logo-small.png) Spring React Week - Episode 3
+> *Create an unprecedented app for your portfolio with the most demanded technologies on the market*
 
-## Realização
-[DevSuperior - Escola de programação](https://devsuperior.com.br)
+## Realization
+[DevSuperior - Programming School](https://devsuperior.com.br)
 
-[![DevSuperior no Instagram](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/ig-icon.png)](https://instagram.com/devsuperior.ig)
-[![DevSuperior no Youtube](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/yt-icon.png)](https://youtube.com/devsuperior)
+[![DevSuperior on Instagram](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/ig-icon.png)](https://instagram.com/devsuperior.ig)
+[![DevSuperior on Youtube](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/yt-icon.png)](https://youtube.com/devsuperior)
 
-## Objetivos do projeto para esta aula
-- Integrar back end e front end
-- Três pilares do React
-  - Componentes
-  - Props
-  - Estado
+## Project goals for this class
+- Integrate backend and frontend
+- Three pillars of React
+   - Components
+   - props
+   - State
 - React Hooks
-  - useState
-  - useEffect
-  - useParams
-  - useNavigate
+   - useState
+   - useEffect
+   - useParams
+   - useNavigate
 
-## AVISO: as aulas ficarão disponíveis somente até domingo às 23h59
+### Step: First request
 
-## AVISO: Instruções sobre certificado no Github do [aqui](https://github.com/devsuperior/sds-dsmovie/tree/main/_certificado)
-
-### Passo: Primeira requisição
-
-- Instalar Axios
+- Install Axios
 ```bash
 yarn add axios@0.24.0
 ```
-- Definir BASE_URL
-- Definir os tipos Movie e MoviePage
-- Fazer a requisição
+- Set BASE_URL
+- Set Movie and MoviePage types
+- Make the request
 
 ```typescript
 export type Movie = {
@@ -57,30 +53,30 @@ export type MoviePage = {
 
 - **COMMIT: First request**
 
-### Passo: React hooks: useState e useEffect
+### Step: React hooks: useState and useEffect
 
-Hooks são funções cujo comportamento está vinculado ao estado e ao ciclo de vida do React a partir de componentes funcionais.
+Hooks are functions whose behavior is tied to the state and lifecycle of React from functional components.
 
 https://pt-br.reactjs.org/docs/hooks-overview.html
 
 ```
 Hook: useState
-Manter estado no componente
+Keep state in component
 ```
 ```
 Hook: useEffect
-Executar algo na instanciação ou destruição do componente, observar estado
+Execute something on component instantiation or destruction, observe state
 ```
 
 - **COMMIT: useState, useEffect**
 
-### Passo: Props
+### Step: Props
 
-Props podem ser entendidas como argumentos do componente React.
+Props can be understood as arguments of the React component.
 
 https://pt-br.reactjs.org/docs/components-and-props.html
 
-NOTA: em uma renderização dinâmica de coleção, cada elemento renderizado DEVE possuir um atributo `key`.
+NOTE: In dynamic collection rendering, each rendered element MUST have a `key` attribute.
 
 - **COMMIT: Props**
 
@@ -89,7 +85,7 @@ NOTA: em uma renderização dinâmica de coleção, cada elemento renderizado DE
 - **COMMIT: useParams**
 
 
-### Passo: Mostrar estrelinhas
+### Step: Show little stars
 ```js
 // EX:
 // getFills(3.5) => [1, 1, 1, 0.5, 0]
@@ -117,10 +113,10 @@ function getFills(score: number) {
 - **COMMIT: Show score**
 
 
-### Passo: Pagination
+### Step: Pagination
 
-- Controlar botão habilitado/desabilitado
-- Trocar página ao clique do botão
+- Control enabled/disabled button
+- Switch page on button click
 
 ```js
 const handlePageChange = (newNumber: number) => {
@@ -131,9 +127,9 @@ const handlePageChange = (newNumber: number) => {
 - **COMMIT: Pagination**
 
 
-### Passo: Salvando score, useNavigate
+### Step: Saving score, useNavigate
 
-Função para validar email
+Function to validate email
 
 ```javascript
 // https://stackoverflow.com/questions/46155/whats-the-best-way-to-validate-an-email-address-in-javascript
@@ -146,7 +142,7 @@ export function validateEmail(email: any) {
 }
 ```
 
-Objeto de configuração da requisição Axios
+Axios request configuration object
 
 ```
 const config: AxiosRequestConfig = {
@@ -165,15 +161,6 @@ const config: AxiosRequestConfig = {
 
 
 
-## PARABÉNS!
+## CONGRATULATIONS!
 
-![Parabéns!](https://raw.githubusercontent.com/devsuperior/bds-assets/main/img/trophy.png)
-
-- Quero muito saber seu feedback
-  - O que você está achando da nossa abordagem?
-  - Você está conseguindo acompanhar?
-  - O que você está achando do evento?
-- Participe
-  - Comente na página da Semana Spring React
-  - Divulgue seu projeto no Linkedin e marque a DevSuperior
-
+![Congratulations!](https://raw.githubusercontent.com/devsuperior/bds-assets/main/img/trophy.png)
