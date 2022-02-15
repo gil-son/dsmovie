@@ -151,7 +151,7 @@ INSERT INTO tb_score(movie_id, user_id, value) VALUES (2, 3, 4.0);
 
 4）映画の平均評価を再計算し、データベースに保存します。
 
-![Image](https://raw.githubusercontent.com/devsuperior/bds-assets/main/sds/dsmovie-objs.png "レイヤーパターン")
+![Image](https://thumbs2.imgbox.com/6f/df/QieNUKvP_t.png "レイヤーパターン")
 
 
 - **COMMIT: Save score**
