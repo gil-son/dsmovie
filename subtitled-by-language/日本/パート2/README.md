@@ -1,28 +1,24 @@
-# ![DevSuperior logo](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/devsuperior-logo-small.png) Semana Spring React - Episódio 2
->  *Crie um app inédito para seu portfólio com as tecnologias mais demandadas do mercado*
+# ![DevSuperior logo](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/devsuperior-logo-small.png) 春の反応週間-エピソード2
+> *市場で最も需要の高いテクノロジーを使用して、ポートフォリオ用の編集中のアプリを作成します*
 
-## Realização
-[DevSuperior - Escola de programação](https://devsuperior.com.br)
+## 実現
+[DevSuperior-プログラミング学部](https://devsuperior.com.br)
 
-[![DevSuperior no Instagram](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/ig-icon.png)](https://instagram.com/devsuperior.ig)
-[![DevSuperior no Youtube](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/yt-icon.png)](https://youtube.com/devsuperior)
+[![DevSuperior Instagram](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/ig-icon.png)](https://instagram.com/devsuperior.ig)
+[![DevSuperior Youtube](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/yt-icon.png)](https://youtube.com/devsuperior)
 
-## Objetivos do projeto para esta aula
-- Implementar o back end
-- Modelo de domínio
-- Acesso a banco de dados
-- Estruturar o back end no padrão camadas
-- Criar endpoints da API REST
-- Implantação na nuvem
+## このクラスのプロジェクトの目標
 
-## AVISO: as aulas ficarão disponíveis somente até domingo às 23h59
+- バックエンドを実装します
+- ドメインモデル
+- データベースアクセス
+- レイヤーパターンでバックエンドを構造化する
+- RESTAPIエンドポイントを作成します
+- クラウド展開
 
-## AVISO: Instruções sobre certificado no Github do [aqui](https://github.com/devsuperior/sds-dsmovie/tree/main/_certificado)
+## チェックリスト
 
-
-## Checklist
-
-### Passo: configuração de segurança
+### ステップ：セキュリティ構成
 
 ```java
 @Configuration
@@ -55,10 +51,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 ```
 - **COMMIT: Security config**
 
-### Passo: criar as entidades e o seed do banco
+### ステップ：エンティティとバンクシードを作成します
 
-#### Modelo conceitual
-![Image](https://raw.githubusercontent.com/devsuperior/bds-assets/main/sds/dsmovie-dominio.png "Modelo conceitual")
+#### 概念モデル
+![Image](https://raw.githubusercontent.com/devsuperior/bds-assets/main/sds/dsmovie-dominio.png "概念モデル")
 
 #### application.properties
 ```
@@ -69,16 +65,16 @@ spring.jpa.open-in-view=false
 
 #### application-test.properties
 ```
-# Dados de conexão com o banco H2
+# H2データベース接続データ
 spring.datasource.url=jdbc:h2:mem:testdb
 spring.datasource.username=sa
 spring.datasource.password=
 
-# Configuração do cliente web do banco H2
+# H2バンクWebクライアント構成
 spring.h2.console.enabled=true
 spring.h2.console.path=/h2-console
 
-# Configuração para mostrar o SQL no console
+# コンソールにSQLを表示するための構成
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
 ```
@@ -130,41 +126,41 @@ INSERT INTO tb_score(movie_id, user_id, value) VALUES (2, 3, 4.0);
 
 - **COMMIT: Domain model, database seed**
 
-### Passo: Busca de filmes
+### ステップ：映画を検索する
 
-#### Padrão camadas adotado
+#### 採用レイヤーパターン
 
-![Image](https://github.com/devsuperior/bds-assets/raw/main/sds/padrao-camadas.png "Padrão camadas")
+![Image](https://github.com/devsuperior/bds-assets/raw/main/sds/padrao-camadas.png "レイヤーパターン")
 
-- Criar repository
-- Criar DTO
-- Criar service
-- Criar controller
+- リポジトリを作成します
+- DTOを作成します
+- サービスを作成します
+- コントローラーを作成します
 - **COMMIT: Find movies**
 
 
-### Passo: Salvar avaliação
+### ステップ：評価を保存する
 
-#### Lógica:
+#### 論理：
 
-1) Informar email, id do filme e valor da avaliação (1 a 5).
+1）メール、映画ID、評価値（1〜5）を通知します。
 
-2) Recuperar usuário do banco de dados pelo email. Se o usuário não existir, insira no banco.
+2）電子メールでデータベースユーザーを取得します。 ユーザーが存在しない場合は、銀行に入力します。
 
-3) Salvar a avaliação do usuário para o dado filme.
+3）特定の映画のユーザー評価を保存します。
 
-4) Recalcular a avaliação média do filme e salvar no banco de dados.
+4）映画の平均評価を再計算し、データベースに保存します。
 
-![Image](https://raw.githubusercontent.com/devsuperior/bds-assets/main/sds/dsmovie-objs.png "Padrão camadas")
+![Image](https://raw.githubusercontent.com/devsuperior/bds-assets/main/sds/dsmovie-objs.png "レイヤーパターン")
 
 
 - **COMMIT: Save score**
 
-### Passo: Validação no Postgres local
+###ステップ：ローカルPostgresでの検証
 
-- Criar três perfis de projeto: test, dev, prod
-- Gerar script SQL no perfil dev
-- Testar projeto no banco Postgres local
+- 3つのプロジェクトプロファイルを作成します：test、dev、prod
+- 開発プロファイルでSQLスクリプトを生成します
+- ローカルのPostgresデータベースでプロジェクトをテストします
 
 #### application-dev.properties
 ```
@@ -193,12 +189,13 @@ java.runtime.version=17
 
 - **COMMIT: First homolog**
 
-### Passo: Implantação no Heroku
-- Criar app no Heroku
-- Provisionar banco Postgres
-- Definir variável APP_PROFILE=prod
-- Conectar ao banco via pgAdmin
-- Criar seed do banco
+### ステップ：Herokuにデプロイする
+
+- Herokuでアプリを作成する
+- Postgresデータベースをプロビジョニングします
+- APP_PROFILE = prod変数を設定します
+- pgAdmin経由で銀行に接続します
+- 銀行シードを作成する
 
 ```bash
 heroku -v
@@ -209,30 +206,23 @@ git subtree push --prefix backend heroku main
 ```
 
 
-### Passo: implantação no Netlify
-- Deploy básico
-  - Base directory: frontend
-  - Build command: yarn build
-  - Publish directory: frontend/build
+### ステップ：Netlifyへのデプロイ
+-基本的な展開
+   -ベースディレクトリ：フロントエンド
+   -ビルドコマンド：ヤーンビルド
+   -公開ディレクトリ：frontend / build
 
-- Arquivo _redirects
+- _redirectsファイル
+
 ```
 /* /index.html 200
 ```
 
-- Configurações adicionais
-  - Site settings -> Domain Management: (colocar o nome que você quiser)
-  - Deploys -> Trigger deploy
+- 追加の設定
+  - サイト設定 -> ドメイン管理： (好きな名前を入れて)
+  - 展開 -> トリガーデプロイ
 
 
-## PARABÉNS!
+## とても良い!
 
-![Parabéns!](https://raw.githubusercontent.com/devsuperior/bds-assets/main/img/trophy.png)
-
-- Quero muito saber seu feedback
-  - O que você está achando da nossa abordagem?
-  - Você está conseguindo acompanhar?
-  - O que você está achando do evento?
-- Participe
-  - Comente na página da Semana Spring React
-  - Divulgue seu projeto no Linkedin e marque a DevSuperior
+![とても良い!](https://raw.githubusercontent.com/devsuperior/bds-assets/main/img/trophy.png)
