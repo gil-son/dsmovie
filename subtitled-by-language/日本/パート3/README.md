@@ -1,37 +1,34 @@
-# ![DevSuperior logo](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/devsuperior-logo-small.png) Semana Spring React - Episódio 3
->  *Crie um app inédito para seu portfólio com as tecnologias mais demandadas do mercado*
+# ![DevSuperior logo](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/devsuperior-logo-small.png) 春の反応週間-エピソード3
+> *市場で最も需要の高いテクノロジーを使用して、ポートフォリオに前例のないアプリを作成します*
 
-## Realização
-[DevSuperior - Escola de programação](https://devsuperior.com.br)
+## 実現
+[DevSuperior-プログラミング学部](https://devsuperior.com.br)
 
-[![DevSuperior no Instagram](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/ig-icon.png)](https://instagram.com/devsuperior.ig)
-[![DevSuperior no Youtube](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/yt-icon.png)](https://youtube.com/devsuperior)
+[![DevSuperior Instagram](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/ig-icon.png)](https://instagram.com/devsuperior.ig)
+[![DevSuperior Youtube](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/yt-icon.png)](https://youtube.com/devsuperior)
 
-## Objetivos do projeto para esta aula
-- Integrar back end e front end
-- Três pilares do React
-  - Componentes
+## このクラスのプロジェクトの目標
+
+- バックエンドとフロントエンドを統合する
+- Reactの3本の柱
+  - コンポーネント
   - Props
-  - Estado
+  - 州
 - React Hooks
   - useState
   - useEffect
   - useParams
   - useNavigate
 
-## AVISO: as aulas ficarão disponíveis somente até domingo às 23h59
+### ステップ：最初のリクエスト
 
-## AVISO: Instruções sobre certificado no Github do [aqui](https://github.com/devsuperior/sds-dsmovie/tree/main/_certificado)
-
-### Passo: Primeira requisição
-
-- Instalar Axios
+- Axiosをインストールします
 ```bash
 yarn add axios@0.24.0
 ```
-- Definir BASE_URL
-- Definir os tipos Movie e MoviePage
-- Fazer a requisição
+- BASE_URLを設定します
+- MovieおよびMoviePageタイプを設定します
+- リクエストを行う
 
 ```typescript
 export type Movie = {
@@ -57,39 +54,40 @@ export type MoviePage = {
 
 - **COMMIT: First request**
 
-### Passo: React hooks: useState e useEffect
+###ステップ：フックを反応させる： useStateおよびuseEffect
 
-Hooks são funções cujo comportamento está vinculado ao estado e ao ciclo de vida do React a partir de componentes funcionais.
+Hooksは、機能コンポーネントからのReactの状態とライフサイクルに動作が関連付けられている関数です。.
 
 https://pt-br.reactjs.org/docs/hooks-overview.html
 
 ```
 Hook: useState
-Manter estado no componente
+コンポーネントの状態を保持する
 ```
 ```
 Hook: useEffect
-Executar algo na instanciação ou destruição do componente, observar estado
+コンポーネントのインスタンス化または破棄で何かを実行し、状態を観察します
 ```
 
 - **COMMIT: useState, useEffect**
 
-### Passo: Props
+### ステップ： Props
 
-Props podem ser entendidas como argumentos do componente React.
+Propsは、Reactコンポーネントの引数として理解できます。
 
 https://pt-br.reactjs.org/docs/components-and-props.html
 
-NOTA: em uma renderização dinâmica de coleção, cada elemento renderizado DEVE possuir um atributo `key`.
+注：動的コレクションレンダリングでは、レンダリングされた各要素に `key`属性が必要です。
 
 - **COMMIT: Props**
 
-### Passo: useParams
+### ステップ: useParams
 
 - **COMMIT: useParams**
 
 
-### Passo: Mostrar estrelinhas
+### ステップ：小さな星を表示する
+
 ```js
 // EX:
 // getFills(3.5) => [1, 1, 1, 0.5, 0]
@@ -117,10 +115,10 @@ function getFills(score: number) {
 - **COMMIT: Show score**
 
 
-### Passo: Pagination
+### ステップ：ページネーション
 
-- Controlar botão habilitado/desabilitado
-- Trocar página ao clique do botão
+- 制御の有効化/無効化ボタン
+- ボタンクリックでページを切り替える
 
 ```js
 const handlePageChange = (newNumber: number) => {
@@ -131,9 +129,9 @@ const handlePageChange = (newNumber: number) => {
 - **COMMIT: Pagination**
 
 
-### Passo: Salvando score, useNavigate
+### ステップ：スコアを保存し、Navigateを使用します
 
-Função para validar email
+メールを検証する機能
 
 ```javascript
 // https://stackoverflow.com/questions/46155/whats-the-best-way-to-validate-an-email-address-in-javascript
@@ -146,7 +144,7 @@ export function validateEmail(email: any) {
 }
 ```
 
-Objeto de configuração da requisição Axios
+Axiosリクエスト構成オブジェクト
 
 ```
 const config: AxiosRequestConfig = {
@@ -165,15 +163,6 @@ const config: AxiosRequestConfig = {
 
 
 
-## PARABÉNS!
+## とても良い!
 
-![Parabéns!](https://raw.githubusercontent.com/devsuperior/bds-assets/main/img/trophy.png)
-
-- Quero muito saber seu feedback
-  - O que você está achando da nossa abordagem?
-  - Você está conseguindo acompanhar?
-  - O que você está achando do evento?
-- Participe
-  - Comente na página da Semana Spring React
-  - Divulgue seu projeto no Linkedin e marque a DevSuperior
-
+![とても良い!](https://raw.githubusercontent.com/devsuperior/bds-assets/main/img/trophy.png)
