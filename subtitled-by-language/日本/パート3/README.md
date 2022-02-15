@@ -54,7 +54,7 @@ export type MoviePage = {
 
 - **COMMIT: First request**
 
-###ステップ：フックを反応させる： useStateおよびuseEffect
+### ステップ：フックを反応させる： useStateおよびuseEffect
 
 Hooksは、機能コンポーネントからのReactの状態とライフサイクルに動作が関連付けられている関数です。.
 
