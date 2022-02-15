@@ -9,13 +9,14 @@ public class FullMovieDTO {
 	private Double score;
 	private String titleBrazil;
 	private String titleSpanish;
+	private String titleJapan;
 	
 	
 	public FullMovieDTO(){}
 
 
 	public FullMovieDTO(Long id, String title, Integer count, String image, Double score, String titleBrazil,
-			String titleSpanish) {
+			String titleSpanish, String titleJapan) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -24,6 +25,7 @@ public class FullMovieDTO {
 		this.score = score;
 		this.titleBrazil = titleBrazil;
 		this.titleSpanish = titleSpanish;
+		this.titleJapan = titleJapan;
 	}
 
 
@@ -94,6 +96,16 @@ public class FullMovieDTO {
 
 	public void setTitleSpanish(String titleSpanish) {
 		this.titleSpanish = titleSpanish;
+	}
+
+
+	public String getTitleJapan() {
+		return titleJapan;
+	}
+
+
+	public void setTitleJapan(String titleJapan) {
+		this.titleJapan = titleJapan;
 	}
 
 }

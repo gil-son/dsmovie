@@ -21,8 +21,10 @@ public class MovieLanguage {
 	private Long id;
 	private String titleBrazil;
 	private String titleSpanish;
+	private String titleJapan;
 	
-	
+
+
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "movie_id")
     @JsonBackReference
@@ -31,10 +33,11 @@ public class MovieLanguage {
 	public MovieLanguage(){}
 
 
-	public MovieLanguage(Long id, String titleBrazil, String titleSpanish) {
+	public MovieLanguage(Long id, String titleBrazil, String titleSpanish, String titleJapan) {
 		this.id = id;
 		this.titleBrazil = titleBrazil;
 		this.titleSpanish = titleSpanish;
+		this.titleJapan = titleJapan;
 	}
 
 
@@ -65,6 +68,15 @@ public class MovieLanguage {
 
 	public void setTitleSpanish(String titleSpanish) {
 		this.titleSpanish = titleSpanish;
+	}
+	
+	public String getTitleJapan() {
+		return titleJapan;
+	}
+
+
+	public void setTitleJapan(String titleJapan) {
+		this.titleJapan = titleJapan;
 	}
 	
 }
