@@ -87,14 +87,14 @@ IMPORTANTE: eliminar la subcarpeta .git
 [Git/Github Introducción y lista de reproducción de configuración](https://www.youtube.com/watch?v=KLG-jC1fh28&list=PLNuUvBZGBA8nDTr8QRMgoT_l3XNt_BbWj)
 
 ```bash
-git config --global user.name <seu nome>
-git config --global user.email <seu email>
+git config --global user.name <su nombre>
+git config --global user.email <su e-mail>
 
 git init
 
 git add .
 
-git commit -m "Project created"
+git commit -m "Proyecto creado"
 
 git remote ...
 ```
@@ -261,11 +261,11 @@ const movie = {
         <h3>"The Witcher"</h3>
         <form className="dsmovie-form">
             <div className="form-group dsmovie-form-group">
-                <label htmlFor="email">Informe seu email</label>
+                <label htmlFor="email">Informar a su correo electrónico</label>
                 <input type="email" className="form-control" id="email" />
             </div>
             <div className="form-group dsmovie-form-group">
-                <label htmlFor="score">Informe sua avaliação</label>
+                <label htmlFor="score">Informe su evaluación</label>
                 <select className="form-control" id="score">
                     <option>1</option>
                     <option>2</option>
@@ -275,7 +275,7 @@ const movie = {
                 </select>
             </div>
             <div className="dsmovie-form-btn-container">
-                <button type="submit" className="btn btn-primary dsmovie-btn">Salvar</button>
+                <button type="submit" className="btn btn-primary dsmovie-btn">Guardar</button>
             </div>
         </form >
         <button className="btn btn-primary dsmovie-btn mt-3">Cancelar</button>
