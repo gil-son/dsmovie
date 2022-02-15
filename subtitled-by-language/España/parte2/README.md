@@ -64,16 +64,16 @@ spring.jpa.open-in-view=false
 
 #### application-test.properties
 ```
-# Dados de conexão com o banco H2
+# Datos de conexión de la base de datos H2
 spring.datasource.url=jdbc:h2:mem:testdb
 spring.datasource.username=sa
 spring.datasource.password=
 
-# Configuração do cliente web do banco H2
+# Configuración del cliente web del banco H2
 spring.h2.console.enabled=true
 spring.h2.console.path=/h2-console
 
-# Configuração para mostrar o SQL no console
+# Configuración para mostrar SQL en consola
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
 ```
