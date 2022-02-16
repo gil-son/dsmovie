@@ -1,6 +1,6 @@
 package com.devsuperior.dsmovie.dto;
 
-public class FullMovieDTO {
+public class MoreTitlesLanguagesDTO {
 
 	private Long id;
 	private String title;
@@ -12,10 +12,10 @@ public class FullMovieDTO {
 	private String titleJapan;
 	
 	
-	public FullMovieDTO(){}
+	public MoreTitlesLanguagesDTO(){}
 
 
-	public FullMovieDTO(Long id, String title, Integer count, String image, Double score, String titleBrazil,
+	public MoreTitlesLanguagesDTO(Long id, String title, Integer count, String image, Double score, String titleBrazil,
 			String titleSpanish, String titleJapan) {
 		super();
 		this.id = id;

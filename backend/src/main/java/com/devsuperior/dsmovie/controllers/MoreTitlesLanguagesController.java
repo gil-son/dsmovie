@@ -7,23 +7,22 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.devsuperior.dsmovie.dto.FullMovieDTO;
-import com.devsuperior.dsmovie.repositories.FullMovieRepository;
+import com.devsuperior.dsmovie.dto.MoreTitlesLanguagesDTO;
+import com.devsuperior.dsmovie.services.MoreTitlesLanguagesService;
 
 
 @RestController
 @RequestMapping(value = "/full-movies-titles")
-public class FullMovieController {
-
+public class MoreTitlesLanguagesController {
+	
 	@Autowired
-	FullMovieRepository fullMovieRepository;
+	MoreTitlesLanguagesService service;
+	
 	
 	
 	@GetMapping
-	public Page<FullMovieDTO> findAll(Pageable pageable){
-		Page<FullMovieDTO> result = fullMovieRepository.findAllPaged(pageable);
-		return result;
+	public Page<MoreTitlesLanguagesDTO> findAll(Pageable pageable){
+		return service.findAll(pageable);
 	}
 	
 }
