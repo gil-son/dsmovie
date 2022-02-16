@@ -4,6 +4,7 @@
  import { Movie } from 'types/movie';
  import { BASE_URL } from 'utils/requests';
  import { validateEmail } from 'utils/validate';
+ import {useSelector} from 'react-redux';
  import './styles.css';
 
  type Props = {
@@ -50,14 +51,36 @@
         });
     }
 
+
+        let ss =  {titleReducer: "spanish"};
+        let bb =  {titleReducer: "brazil"};
+        let ee =  {titleReducer: "english"};
+        let jj =  {titleReducer: "japan"};
+
+        const theState = useSelector( function(state){ return state});
+
+        var verifySpanish = JSON.stringify(ss) === JSON.stringify(theState);
+        var verifyBrazil = JSON.stringify(bb) === JSON.stringify(theState);
+        var verifyEnglish = JSON.stringify(ee) === JSON.stringify(theState);
+        var verifyJapan = JSON.stringify(jj) === JSON.stringify(theState);
+
      return (
          <div className="dsmovie-form-container">
              <img className="dsmovie-movie-card-image" src={movie?.image} alt={movie?.title} />
              <div className="dsmovie-card-bottom-container">
-                 <h3>{movie?.title}</h3>
+                 <h3>
+                     {movie?.title}
+                 </h3>
                  <form className="dsmovie-form" onSubmit={handleSubmit}>
                      <div className="form-group dsmovie-form-group">
-                         <label htmlFor="email">Inform your email</label>
+                         <label htmlFor="email">
+                             
+                             {verifyEnglish && <>Inform your email</>}
+                             {verifySpanish && <>informar a su correo electrónico</>}
+                             {verifyBrazil && <>Informe o seu email</>}
+                             {verifyJapan && <>あなたの電子メールを知らせなさい</>}
+                         
+                         </label>
                          <input type="email" className="form-control" id="email" />
                      </div>
                      <div className="form-group dsmovie-form-group">

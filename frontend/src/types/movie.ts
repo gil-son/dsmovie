@@ -6,6 +6,7 @@ export type Movie = {
     image: string;
     titleBrazil: string;
     titleSpanish: string;
+    titleJapan: string;
 }
 
 export type MoviePage = {
