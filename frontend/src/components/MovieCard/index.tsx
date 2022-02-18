@@ -16,8 +16,8 @@ function MovieCard( { movie } : Props) {
         
         setDispatchJ();
         setDispatchS();
-        setDispatchE();
-        setDispatchB(); // the last, is the first to appear
+        setDispatchB();
+        setDispatchE(); // the last, is the first to appear
         
 
     }, []);
@@ -45,11 +45,6 @@ function MovieCard( { movie } : Props) {
     let jj =  {titleReducer: "japan"};
 
    const theState = useSelector( function(state){ return state});
-   console.log("ee", ee)
-   console.log("bb", bb)
-   console.log("ss", ss)
-   console.log("jj", jj)
-   console.log("theState", theState)
 
 
   var verifySpanish = JSON.stringify(ss) === JSON.stringify(theState);
@@ -57,10 +52,6 @@ function MovieCard( { movie } : Props) {
   var verifyEnglish = JSON.stringify(ee) === JSON.stringify(theState);
   var verifyJapan = JSON.stringify(jj) === JSON.stringify(theState);
 
-   console.log("ee", verifySpanish)
-   console.log("bb", verifyBrazil)
-   console.log("ss", verifyEnglish)
-   console.log("jj", verifyJapan)
 
     return (
         <div>

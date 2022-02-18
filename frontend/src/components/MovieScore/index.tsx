@@ -47,17 +47,17 @@ function MovieScore({ score, count } : Props) {
              <p className="dsmovie-score-value">{score > 0 ? score.toFixed(1) : '-'}</p>
              <MovieStars score={score} />
              
-             {count === 0 && verifyEnglish && <p className="dsmovie-score-count">{count} valuation</p>}
-             {count > 0 && verifyEnglish && <p className="dsmovie-score-count">{count} valuations</p>}
+             {count <= 1 && verifyEnglish && <p className="dsmovie-score-count">{count} valuation</p>}
+             {count > 1 && verifyEnglish && <p className="dsmovie-score-count">{count} valuations</p>}
 
-             {count === 0 && verifySpanish && <p className="dsmovie-score-count">{count} evaluación</p>}
-             {count > 0 && verifySpanish && <p className="dsmovie-score-count">{count} evaluaciones</p>}
+             {count <= 1 && verifySpanish && <p className="dsmovie-score-count">{count} evaluación</p>}
+             {count > 1 && verifySpanish && <p className="dsmovie-score-count">{count} evaluaciones</p>}
 
-             {count === 0 && verifyBrazil && <p className="dsmovie-score-count">{count} avaliação</p>}
-             {count > 0 && verifyBrazil && <p className="dsmovie-score-count">{count} avaliações</p>}
+             {count <= 1 && verifyBrazil && <p className="dsmovie-score-count">{count} avaliação</p>}
+             {count > 1 && verifyBrazil && <p className="dsmovie-score-count">{count} avaliações</p>}
 
-             {count === 0 && verifyJapan && <p className="dsmovie-score-count">{count} 評価</p>}
-             {count > 0 && verifyJapan && <p className="dsmovie-score-count">{count} 評価</p>}
+             {count <= 1 && verifyJapan && <p className="dsmovie-score-count">{count} 評価</p>}
+             {count > 1 && verifyJapan && <p className="dsmovie-score-count">{count} 評価</p>}
          </div>
     )
 } 
