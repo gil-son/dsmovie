@@ -22,6 +22,6 @@
 
 <hr/>
 
-<div align="center"><a href="https://imgbox.com/SYZkX5gg" target="_blank"><img src="https://cdn.discordapp.com/attachments/564926312255586348/944374437686439936/responsive.png" alt="image host"/></a></div>
+<div align="center"><a href="https://imgbox.com/SYZkX5gg" target="_blank"><img src="https://media.discordapp.net/attachments/564926312255586348/945725306424131624/responsive.png" alt="image host"/></a></div>
 
 <br/>
