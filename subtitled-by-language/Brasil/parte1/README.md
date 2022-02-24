@@ -12,9 +12,6 @@
 - Salvar os projeto no Github em monorepo
 - Montar o visual estático do front end
 
-## AVISO: as aulas ficarão disponíveis somente até domingo às 23h59
-
-## AVISO: Instruções sobre certificado no Github do [aqui](https://github.com/devsuperior/sds-dsmovie/tree/main/_certificado)
 
 ## Checklist
 
