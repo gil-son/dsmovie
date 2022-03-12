@@ -10,6 +10,7 @@
   - MovieLanguageRepository
   - MovieLanguageService
   - MovieLanguageController
+  - import.sql
 - Fronent
   - Redux
   - Integração da API com as novas linguagens de títulos
@@ -443,22 +444,65 @@ http://localhost:8080/full-movies-titles?size=12&page=0
 
 
 
-- **COMMIT: First request**
+- **COMMIT: More Languages titles**
 
-### Passo: React hooks: useState e useEffect
+### Frontend
 
-Hooks são funções cujo comportamento está vinculado ao estado e ao ciclo de vida do React a partir de componentes funcionais.
+## Redux
 
-https://pt-br.reactjs.org/docs/hooks-overview.html
+- Redux é uma biblioteca para armazenamento de estados de aplicações JavaScript, consegue gerenciar o estado de componentes vizinhos e/ou distintos. <a href="https://redux.js.org">Saiba mais</a>
+
+- Vai ser utilizado para gerenciar os estados da linguagens dos títulos
+- Conforme houver um clique no botão que corresponde a linguagem, o Redux vai armazernar um novo valor para o componente que busca os títulos da API
+- Instalação 
 
 ```
-Hook: useState
-Manter estado no componente
+# NPM
+npm install @reduxjs/toolkit
+
+# Yarn
+yarn add @reduxjs/toolkit
 ```
+
+- Crie dentro da pasta src uma pasta chamada store e crie um arquivo chamado index.jsx
+- Dentro de index.jsx inclua o seguinte script para a utilização do redux e o store
+
 ```
-Hook: useEffect
-Executar algo na instanciação ou destruição do componente, observar estado
+import {createStore} from 'redux';
+import reducer from '../reducers';
+
+const store = createStore(
+    reducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+
+);
+
+export default store;
 ```
+
+- Crie dentro da pasta src uma pasta chamada reducers e crie um arquivo chamado index.js
+- Dentro de index.jsx inclua o seguinte script para gerenciar e exportar os reducers (nesse caso só há um)
+
+```
+import {combineReducers} from 'redux';
+
+function titleReducer( state = "", action){
+     switch(action.type){
+        case "brazil": return "brazil";  
+        case "spanish": return "spanish";  
+        case "english": return "english";
+        case "japan": return "japan";
+        default: return state;
+     }
+    
+}
+
+const reducers = combineReducers({titleReducer});
+
+export default reducers;
+```
+
+
 
 - **COMMIT: useState, useEffect**
 
