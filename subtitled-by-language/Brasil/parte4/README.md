@@ -11,7 +11,7 @@
   - MovieLanguageService
   - MovieLanguageController
   - import.sql
-- Fronent
+- Frontend
   - Redux
   - Integração da API com as novas linguagens de títulos
   - Refatoramento de alguns componentes
@@ -448,7 +448,7 @@ http://localhost:8080/full-movies-titles?size=12&page=0
 
 ### Frontend
 
-## Redux
+### Redux
 
 - Redux é uma biblioteca para armazenamento de estados de aplicações JavaScript, consegue gerenciar o estado de componentes vizinhos e/ou distintos. <a href="https://redux.js.org">Saiba mais</a>
 
@@ -502,110 +502,575 @@ const reducers = combineReducers({titleReducer});
 export default reducers;
 ```
 
+- Dentro da pasta src e no arquivo index.tsx, atualize o script para o seguinte:
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.css';
+import './index.css';
+import App from './App';
+
+import {Provider} from 'react-redux';
+import store from './store';
 
 
-- **COMMIT: useState, useEffect**
 
-### Passo: Props
-
-Props podem ser entendidas como argumentos do componente React.
-
-https://pt-br.reactjs.org/docs/components-and-props.html
-
-NOTA: em uma renderização dinâmica de coleção, cada elemento renderizado DEVE possuir um atributo `key`.
-
-- **COMMIT: Props**
-
-### Passo: useParams
-
-- **COMMIT: useParams**
-
-
-### Passo: Mostrar estrelinhas
-```js
-// EX:
-// getFills(3.5) => [1, 1, 1, 0.5, 0]
-// getFills(4.1) => [1, 1, 1, 1, 0.5]
-function getFills(score: number) {
-
-  const fills = [0, 0, 0, 0, 0];
-
-  const integerPart = Math.floor(score);
-
-  for (let i = 0; i < integerPart; i++) {
-    fills[i] = 1;
-  }
-
-  const diff = score - integerPart;
-  if (diff > 0) {
-    fills[integerPart] = 0.5;
-  }
-
-  return fills;
-}
+ReactDOM.render(
+  <Provider store={store}>
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
+  </Provider>,
+  document.getElementById('root')
+);
 ```
 
 
-- **COMMIT: Show score**
+
+### Adicionar imagens de bandeiras que corresponde a linguagem
+
+Clique nas imagens a baixo e faca o download:
+
+- <a href="https://github.com/gil-son/dsmovie/tree/main/subtitled-by-language/Brasil" ><img  width="5%" src="https://flagicons.lipis.dev/flags/4x3/br.svg" /></a>
+
+- <a href="https://github.com/gil-son/dsmovie/tree/main/subtitled-by-language/English" ><img  width="5%" src="https://flagicons.lipis.dev/flags/4x3/us.svg" /></a>
+
+- <a href="https://github.com/gil-son/dsmovie/tree/main/subtitled-by-language/España" ><img  width="5%" src="https://flagicons.lipis.dev/flags/4x3/es.svg" /></a>
+
+- <a href="https://github.com/gil-son/dsmovie/tree/main/subtitled-by-language/日本" ><img  width="5%" src="https://flagicons.lipis.dev/flags/4x3/jp.svg" /></a>
+
+- adicione as imagens das bandeiras no diretório src/assets/img
 
 
-### Passo: Pagination
+### Atualizando utilitários, páginas e componentes
 
-- Controlar botão habilitado/desabilitado
-- Trocar página ao clique do botão
+#### types - movie.ts
 
-```js
-const handlePageChange = (newNumber: number) => {
-    setPageNumber(newNumber);
+- Acesse a pasta types e no arquivo movie.ts, deixe da seguinte forma:
+
+```
+export type Movie = {
+    id: number;
+    title: string;
+    score: number;
+    count: number;
+    image: string;
+    titleBrazil: string;
+    titleSpanish: string;
+    titleJapan: string;
 }
+
+export type MoviePage = {
+    content: Movie[];
+    last: boolean;
+    totalPages: number;
+    totalElements: number;
+    size: number;
+    number: number;
+    first: boolean;
+    numberOfElements: number;
+    empty: boolean;
+}
+
 ```
 
-- **COMMIT: Pagination**
+- Observe que o type Movie contem mais propriedades para receber a API
 
 
-### Passo: Salvando score, useNavigate
+#### pages - Listing - index.ts
 
-Função para validar email
+- Acesse o diretório pages/Linting e no arquivo index.ts, deixe da seguinte forma:
 
-```javascript
-// https://stackoverflow.com/questions/46155/whats-the-best-way-to-validate-an-email-address-in-javascript
-export function validateEmail(email: any) {
-  return String(email)
-    .toLowerCase()
-    .match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+```
+import axios from "axios";
+import { useState, useEffect } from "react";
+import MovieCard from "components/MovieCard";
+import Pagination from "components/Pagination";
+import { BASE_URL } from "utils/requests";
+import { MoviePage } from "types/movie";
+
+function Listing() {
+
+    const [pageNumber, setPageNumber] = useState(0);
+    
+
+    const [page, setPage] = useState<MoviePage>({
+        content: [],
+        last: true,
+        totalPages: 0,
+        totalElements: 0,
+        size: 12,
+        number: 0,
+        first: true,
+        numberOfElements: 0,
+        empty: true
+    });
+    
+
+    useEffect(() => {
+        axios.get(`${BASE_URL}/full-movies-titles?size=12&page=${pageNumber}&sort=title`)
+            .then(response => {
+                const data = response.data as MoviePage;
+                setPage(data);
+                console.log(data);
+            });
+    }, [pageNumber]);
+    
+    const handlePageChange = (newPageNumber : number) => {
+        setPageNumber(newPageNumber);
+    }
+
+    return (
+        <>
+            <Pagination page={page} onChange={handlePageChange} />
+            
+            <div className="container">
+                <div className="row">
+                    {page.content.map(movie => (
+                        <div key={movie.id} className="col-sm-6 col-lg-4 col-xl-3 mb-3">
+                            <MovieCard movie={movie}/>
+                        </div>
+                    )
+                    )}
+                </div>
+            </div>
+        </>
     );
 }
+
+export default Listing;
+
+```
+- Respare que agora está sendo utilizada a API com as linguagens dos títulos
+
+
+
+#### components - Navbar - index.tsx
+
+- dentro da pasta components, acesse a pasta Navbar e dentro do arquivo index.tsx, atualize o script para:
+
 ```
 
-Objeto de configuração da requisição Axios
+import {ReactComponent as GithubIcon} from "assets/img/github.svg"; // tsconfig.json "baseUrl": "./src"
+import {ReactComponent as BrazilFlag} from "assets/img/br.svg";
+import {ReactComponent as SpanishFlag} from "assets/img/es.svg";
+import {ReactComponent as JapanFlag} from "assets/img/jp.svg";
+import {ReactComponent as UnitedStatesFlag} from "assets/img/us.svg";
+import {useDispatch} from 'react-redux';
+import "./styles.css";
+
+
+function NavBar(){
+  
+  const dispatch = useDispatch();
+
+  function ClickedBrazil(){
+    dispatch( {type: "brazil"});
+  }
+
+  function ClickedSpanish(){
+    dispatch( {type: "spanish"});
+  }
+
+  function ClickedEnglish(){
+    dispatch( {type: "english"});
+  }
+
+  function ClickedJapan(){
+    dispatch( {type: "japan"});
+    
+  }
+
+    return(
+        <header>
+        <nav className="container">
+          <div className="dsmovie-nav-content">
+            <h1>DSMovie</h1>
+            
+            
+            <div className="dsmovie-contact-container-center">
+              <div className="dsmovie-flag-container">
+                  <BrazilFlag onClick={ClickedBrazil} />
+                  ........
+                </div>
+                <div className="dsmovie-flag-container">
+                  <UnitedStatesFlag onClick={ClickedEnglish} />
+                  ........
+                  
+                </div>
+                <div className="dsmovie-flag-container">
+                  <SpanishFlag onClick={ClickedSpanish} />  
+                  ........
+                </div>
+
+                <div className="dsmovie-flag-container">
+                  <JapanFlag onClick={ClickedJapan} />  
+                  ........
+                </div>
+              </div>
+            
+              <div className="dsmovie-contact-container">
+            <a href="https://github.com/gil-son/dsmovie" target="_blank" rel="noreferrer">
+              
+                <GithubIcon />
+                
+              
+            </a>
+            </div>
+          </div>
+        </nav>
+      </header>
+    );
+}
+
+
+export default NavBar;
+```
+
+- E no arquivo style.css
+
 
 ```
-const config: AxiosRequestConfig = {
-	baseURL: BASE_URL,
-	method: 'PUT',
-	url: '/scores',
-	data: {
-		email: email,
-		movieId: movieId,
-		score: score
-	}
+header{
+    background-color: var(--color-primary);
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.dsmovie-nav-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff
+}
+
+.dsmovie-nav-content h1{
+    margin: 0;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.dsmovie-contact-container{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dsmovie-contact-container-center{
+    margin-right: 100px;
+    display:flex;
+}
+
+.dsmovie-flag-container{
+    margin-left: 20px;
+    justify-content:flex-end;
+    width: 80%;
+    height: 26px;
+    cursor: pointer;
+    
+}
+
+
+.dsmovie-contact-link{
+    margin: 0 0 0 10px;
+    font-size: 12px;
 }
 ```
 
-- **COMMIT: Save, useNavigate**
+
+
+
+
+#### components - MovieScore - index.tsx
+
+- dentro da pasta components, acesse a pasta MovieScore e dentro do arquivo index.tsx, atualize o script para:
+
+```
+import MovieStars from "components/MovieStars";
+import {useSelector} from 'react-redux';
+import { useEffect } from "react";
+import "./styles.css";
+
+// https://pt.stackoverflow.com/questions/347616/problema-com-condicional-no-react
+
+type Props = {
+    score: number;
+    count: number;
+}
+
+function MovieScore({ score, count } : Props) {
+
+    
+    useEffect(() => {
+        
+        setVerify();
+        
+
+    }, []);
+
+    function setVerify(){
+
+    }
+
+    let ss =  {titleReducer: "spanish"};
+    let bb =  {titleReducer: "brazil"};
+    let ee =  {titleReducer: "english"};
+    let jj =  {titleReducer: "japan"};
+
+    const theState = useSelector( function(state){ return state});
+    console.log("ee", ee)
+    console.log("bb", bb)
+    console.log("ss", ss)
+    console.log("jj", jj)
+    console.log("theState", theState)
+
+
+    var verifySpanish = JSON.stringify(ss) === JSON.stringify(theState);
+    var verifyBrazil = JSON.stringify(bb) === JSON.stringify(theState);
+    var verifyEnglish = JSON.stringify(ee) === JSON.stringify(theState);
+    var verifyJapan = JSON.stringify(jj) === JSON.stringify(theState);
+
+    return (
+        <div className="dsmovie-score-container">
+             <p className="dsmovie-score-value">{score > 0 ? score.toFixed(1) : '-'}</p>
+             <MovieStars score={score} />
+             
+             {count <= 1 && verifyEnglish && <p className="dsmovie-score-count">{count} valuation</p>}
+             {count > 1 && verifyEnglish && <p className="dsmovie-score-count">{count} valuations</p>}
+
+             {count <= 1 && verifySpanish && <p className="dsmovie-score-count">{count} evaluación</p>}
+             {count > 1 && verifySpanish && <p className="dsmovie-score-count">{count} evaluaciones</p>}
+
+             {count <= 1 && verifyBrazil && <p className="dsmovie-score-count">{count} avaliação</p>}
+             {count > 1 && verifyBrazil && <p className="dsmovie-score-count">{count} avaliações</p>}
+
+             {count <= 1 && verifyJapan && <p className="dsmovie-score-count">{count} 評価</p>}
+             {count > 1 && verifyJapan && <p className="dsmovie-score-count">{count} 評価</p>}
+         </div>
+    )
+} 
+
+export default MovieScore;
+
+```
+
+
+#### components - MovieCard - index.tsx
+
+- dentro da pasta components, acesse a pasta MovieCard e dentro do arquivo index.tsx, atualize o script para:
+
+```
+
+import MovieScore from "components/MovieScore";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Movie } from "types/movie";
+import {useSelector, useDispatch} from 'react-redux';
+
+type Props = {
+    movie: Movie;
+}
+
+function MovieCard( { movie } : Props) {
+    
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        
+        setDispatchJ();
+        setDispatchS();
+        setDispatchB();
+        setDispatchE(); // the last, is the first to appear
+        
+
+    }, []);
+
+
+    function setDispatchB(){
+        dispatch({ type: "brazil"});
+    }
+
+    function setDispatchS(){
+       dispatch({ type: "spanish"});
+    }     
+
+    function setDispatchE(){
+        dispatch({ type: "english"});
+    }
+
+    function setDispatchJ(){
+        dispatch({ type: "japan"});
+    }
+
+    let ss =  {titleReducer: "spanish"};
+    let bb =  {titleReducer: "brazil"};
+    let ee =  {titleReducer: "english"};
+    let jj =  {titleReducer: "japan"};
+
+   const theState = useSelector( function(state){ return state});
+
+
+  var verifySpanish = JSON.stringify(ss) === JSON.stringify(theState);
+  var verifyBrazil = JSON.stringify(bb) === JSON.stringify(theState);
+  var verifyEnglish = JSON.stringify(ee) === JSON.stringify(theState);
+  var verifyJapan = JSON.stringify(jj) === JSON.stringify(theState);
+
+
+    return (
+        <div>
+            <img className="dsmovie-movie-card-image" src={movie.image} alt={movie.title} />
+            <div className="dsmovie-card-bottom-container">
+                {verifyEnglish && <h3>{movie.title}</h3>}
+                {verifyBrazil && <h3>{movie.titleBrazil}</h3>}
+                {verifySpanish && <h3>{movie.titleSpanish}</h3>}
+                {verifyJapan && <h3>{movie.titleJapan}</h3>}
+                <MovieScore count={movie.count} score={movie.score} />
+                <Link to={`/form/${movie.id}`}>
+                    <div className="btn btn-primary dsmovie-btn">
+                        
+                        {verifyEnglish && <>Evaluate</>}
+                        {verifyBrazil && <>Avaliar</>}
+                        {verifySpanish && <>Para evaluar</>}
+                        {verifyJapan && <>評価します</>}
+                    
+                    </div>
+                </Link>
+            </div>
+        </div>
+    )
+}
+
+
+
+export default MovieCard;
+
+```
+
+
+
+#### components - FormCard - index.tsx
+
+- dentro da pasta components, acesse a pasta FormCard e dentro do arquivo index.tsx, atualize o script para:
+
+```
+
+ import axios, { AxiosRequestConfig } from 'axios';
+ import { useEffect, useState } from 'react';
+ import { Link, useNavigate } from 'react-router-dom';
+ import { Movie } from 'types/movie';
+ import { BASE_URL } from 'utils/requests';
+ import { validateEmail } from 'utils/validate';
+ import {useSelector} from 'react-redux';
+ import './styles.css';
+
+ type Props = {
+     movieId : string;
+ }
+
+ function FormCard( { movieId } : Props) {
+
+     const navigate = useNavigate();
+
+     const [movie, setMovie] = useState<Movie>();
+
+     useEffect(() => {
+        axios.get(`${BASE_URL}/movies/${movieId}`)
+            .then(response => {
+                setMovie(response.data);
+            });
+    }, [movieId]);
+
+     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+
+        event.preventDefault();
+
+        const email = (event.target as any).email.value;
+        const score = (event.target as any).score.value;
+
+        if (!validateEmail(email)) {
+            return;
+        }
+
+        const config: AxiosRequestConfig = {
+            baseURL: BASE_URL,
+            method: 'PUT',
+            url: '/scores',
+            data: {
+                email: email,
+                movieId: movieId,
+                score: score
+            }
+        }
+
+        axios(config).then(response => {
+            navigate("/");
+        });
+    }
+
+
+        let ss =  {titleReducer: "spanish"};
+        let bb =  {titleReducer: "brazil"};
+        let ee =  {titleReducer: "english"};
+        let jj =  {titleReducer: "japan"};
+
+        const theState = useSelector( function(state){ return state});
+
+        var verifySpanish = JSON.stringify(ss) === JSON.stringify(theState);
+        var verifyBrazil = JSON.stringify(bb) === JSON.stringify(theState);
+        var verifyEnglish = JSON.stringify(ee) === JSON.stringify(theState);
+        var verifyJapan = JSON.stringify(jj) === JSON.stringify(theState);
+
+     return (
+         <div className="dsmovie-form-container">
+             <img className="dsmovie-movie-card-image" src={movie?.image} alt={movie?.title} />
+             <div className="dsmovie-card-bottom-container">
+                 <h3>
+                     {movie?.title}
+                 </h3>
+                 <form className="dsmovie-form" onSubmit={handleSubmit}>
+                     <div className="form-group dsmovie-form-group">
+                         <label htmlFor="email">
+                             
+                             {verifyEnglish && <>Inform your email</>}
+                             {verifySpanish && <>informar a su correo electrónico</>}
+                             {verifyBrazil && <>Informe o seu email</>}
+                             {verifyJapan && <>あなたの電子メールを知らせなさい</>}
+                         
+                         </label>
+                         <input type="email" className="form-control" id="email" />
+                     </div>
+                     <div className="form-group dsmovie-form-group">
+                         <label htmlFor="score">Inform your evaluate</label>
+                         <select className="form-control" id="score">
+                             <option>1</option>
+                             <option>2</option>
+                             <option>3</option>
+                             <option>4</option>
+                             <option>5</option>
+                         </select>
+                     </div>
+                     <div className="dsmovie-form-btn-container">
+                         <button type="submit" className="btn btn-primary dsmovie-btn">Save</button>
+                     </div>
+                 </form >
+                 <Link to="/">
+                     <button className="btn btn-primary dsmovie-btn mt-3">Cancel</button>
+                 </Link>
+             </div >
+         </div >
+     );
+ }
+
+ export default FormCard;
+ 
+```
+
+- **COMMIT: Concluído**
 
 
 
 ## PARABÉNS!
 
 ![Parabéns!](https://raw.githubusercontent.com/devsuperior/bds-assets/main/img/trophy.png)
-
-- Quero muito saber seu feedback
-  - O que você está achando da nossa abordagem?
-  - Você está conseguindo acompanhar?
-  - O que você está achando do evento?
-- Participe
-  - Comente na página da Semana Spring React
-  - Divulgue seu projeto no Linkedin e marque a DevSuperior
-
