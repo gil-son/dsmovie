@@ -1,20 +1,20 @@
 # Extra - parte 4
 
-## AVISO: a parte 4, é uma implementação de minha autoria e com o intuito de auto desenvolvimento. Não faz mais parte do evento. Caso queira consultar a versão original, acesse <a href="https://github.com/devsuperior/sds-dsmovie">sds-dsmovie</a>
+## DISCLAIMER: part 4 is an implementation of my own and intended for self development. No longer part of the event. If you want to see the original version, go to <a href="https://github.com/devsuperior/sds-dsmovie">sds-dsmovie</a>
 
 
-## Objetivos do projeto para esta etapa
-- Cria mais opções de linguagens para os títulos dos filmes e site, conforme o usuário selecionar a bandeira correspondente a linguagem
+## Project goals for this step
+- Creates more language options for movie titles and website, as the user selects the flag corresponding to the language
 - Backend
-  - MovieLanguages
-  - MovieLanguageRepository
-  - MovieLanguageService
-  - MovieLanguageController
-  - import.sql
+   - MovieLanguages
+   - MovieLanguageRepository
+   - MovieLanguageService
+   - MovieLanguageController
+   - import.sql
 - Frontend
-  - Redux
-  - Integração da API com as novas linguagens de títulos
-  - Refatoramento de alguns componentes
+   - Redux
+   - API integration with the new titles languages
+   - Refactoring of some components
  
 
 
@@ -22,9 +22,9 @@
 
 ### Entidade MovieLanguages
 
-- Crie a entidade MovieLanguages 
-- Vai conter as novas linguagens dos títulos
-- vai fazer uma relação de 1 para 1 com a entidade Movie
+- Create the MovieLanguages entity
+- Will contain the new titles languages
+- will make a 1 to 1 relationship with the Movie entity
 
 ```
 @Entity
@@ -61,7 +61,7 @@ public class MovieLanguage {
 
 ### DTOs MovieLanguageDTO e MoreTitlesLanguagesDTO
 
-- Crie o DTO MovieLanguageDTO que é o DTO correspondente a entidade MovieLaguage
+- Create the DTO MovieLanguageDTO which is the DTO corresponding to the MovieLaguage entity
 
 ```
 
@@ -90,8 +90,8 @@ public class MovieLanguageDTO {
 }
 ```
 
-- Crie o DTO MoreTitlesLanguagesDTO que será responsável por conter as propriedades que se encontram nas Movie e MovieLanguage
-- A seguir esse DTO será utilizado para um join das duas entidades, entao requer que tenha as suas propriedades
+- Create the MoreTitlesLanguagesDTO that will be responsible for containing the properties found in the Movie and MovieLanguage
+- Next, this DTO will be used for a join of the two entities, so it requires it to have its properties
 
 ```
 
@@ -132,7 +132,7 @@ public class MoreTitlesLanguagesDTO {
 
 ### Repository MovieRepository
 
-- Crie a interface MoreTitlesLanguagesRepository que vai ter um @Query para fazer um join entre a entidade Movie com a MovieLanguage, utilizando as propriedades do MoreTitlesLanguagesDTO que correspondem a junção de Movie com MovieLanguage
+- Create the MoreTitlesLanguagesRepository interface that will have an @Query to join the Movie entity with the MovieLanguage, using the properties of the MoreTitlesLanguagesDTO that correspond to the junction of Movie with MovieLanguage
 
 
 ```
@@ -148,7 +148,7 @@ public interface MoreTitlesLanguagesRepository extends JpaRepository<Movie, Long
 
 ### Service MoreTitlesLanguagesService
 
-- Crie o Service MoreTitlesLanguagesService
+- Create the MoreTitlesLanguagesService Service
 
 ```
 @Service
@@ -172,7 +172,7 @@ public class MoreTitlesLanguagesService {
 
 ### Controller MoreTitlesLanguagesController
 
-- Crie o Service MoreTitlesLanguagesService
+- Create the MoreTitlesLanguagesService Controller
 
 ```
 @RestController
@@ -193,7 +193,7 @@ public class MoreTitlesLanguagesController {
 
 ```
 
-### Atualizar o import.sql
+### Update import.sql
 
 ```
 
@@ -279,15 +279,15 @@ INSERT INTO tb_score(movie_id, user_id, value) VALUES (2, 3, 4.0);
 ```
 
 
-### Testar o endpoint criado
+### Test the created endpoint
 
-- utilizando o método GET e o endpoint:
+- using the GET method and the endpoint:
 
 ```
 http://localhost:8080/full-movies-titles?size=12&page=0
 ```
 
-- é esperado o seguinte json/payload:
+- the following json/payload is expected:
 
 ```
 {
@@ -450,11 +450,11 @@ http://localhost:8080/full-movies-titles?size=12&page=0
 
 ### Redux
 
-- Redux é uma biblioteca para armazenamento de estados de aplicações JavaScript, consegue gerenciar o estado de componentes vizinhos e/ou distintos. <a href="https://redux.js.org">Saiba mais</a>
+- Redux is a library for storing JavaScript application states, it manages the state of neighboring and/or distinct components. <a href="https://redux.js.org">Learn more</a>
 
-- Vai ser utilizado para gerenciar os estados da linguagens dos títulos
-- Conforme houver um clique no botão que corresponde a linguagem, o Redux vai armazernar um novo valor para o componente que busca os títulos da API
-- Instalação 
+- It will be used to manage the language states of the titles
+- As there is a click on the button that corresponds to the language, Redux will store a new value for the component that fetches the API titles
+- Installation
 
 ```
 # NPM
@@ -464,8 +464,8 @@ npm install @reduxjs/toolkit
 yarn add @reduxjs/toolkit
 ```
 
-- Crie dentro da pasta src uma pasta chamada store e crie um arquivo chamado index.jsx
-- Dentro de index.jsx inclua o seguinte script para a utilização do redux e o store
+- Create inside the src folder a folder called store and create a file called index.jsx
+- Inside index.jsx include the following script for using redux and the store
 
 ```
 import {createStore} from 'redux';
@@ -480,8 +480,8 @@ const store = createStore(
 export default store;
 ```
 
-- Crie dentro da pasta src uma pasta chamada reducers e crie um arquivo chamado index.js
-- Dentro de index.jsx inclua o seguinte script para gerenciar e exportar os reducers (nesse caso só há um)
+- Create inside the src folder a folder called reducers and create a file called index.js
+- Inside index.jsx include the following script to manage and export the reducers (in this case there is only one)
 
 ```
 import {combineReducers} from 'redux';
@@ -502,7 +502,7 @@ const reducers = combineReducers({titleReducer});
 export default reducers;
 ```
 
-- Dentro da pasta src e no arquivo index.tsx, atualize o script para o seguinte:
+- Inside the src folder and in the index.tsx file, update the script to the following:
 
 ```
 import React from 'react';
@@ -528,9 +528,9 @@ ReactDOM.render(
 
 
 
-### Adicionar imagens de bandeiras que corresponde a linguagem
+### Add images of flags that match the language
 
-Clique nas imagens a baixo e faca o download:
+Click on the images below and download:
 
 - <a href="https://github.com/gil-son/dsmovie/tree/main/subtitled-by-language/Brasil" ><img  width="5%" src="https://flagicons.lipis.dev/flags/4x3/br.svg" /></a>
 
@@ -540,14 +540,14 @@ Clique nas imagens a baixo e faca o download:
 
 - <a href="https://github.com/gil-son/dsmovie/tree/main/subtitled-by-language/日本" ><img  width="5%" src="https://flagicons.lipis.dev/flags/4x3/jp.svg" /></a>
 
-- adicione as imagens das bandeiras no diretório src/assets/img
+- add the images of the flags in the src/assets/img directory
 
 
-### Atualizando utilitários, páginas e componentes
+### Updating utilities, pages and components
 
 #### types - movie.ts
 
-- Acesse a pasta types e no arquivo movie.ts, deixe da seguinte forma:
+- Access the types folder and in the movie.ts file, leave it as follows:
 
 ```
 export type Movie = {
@@ -575,12 +575,12 @@ export type MoviePage = {
 
 ```
 
-- Observe que o type Movie contem mais propriedades para receber a API
+- Note that type Movie contains more properties to receive API
 
 
 #### pages - Listing - index.ts
 
-- Acesse o diretório pages/Linting e no arquivo index.ts, deixe da seguinte forma:
+- Access the pages/Linting directory and in the index.ts file, leave it as follows:
 
 ```
 import axios from "axios";
@@ -642,13 +642,13 @@ function Listing() {
 export default Listing;
 
 ```
-- Respare que agora está sendo utilizada a API com as linguagens dos títulos
+- Note that the API is now being used with the titles' languages
 
 
 
 #### components - Navbar - index.tsx
 
-- dentro da pasta components, acesse a pasta Navbar e dentro do arquivo index.tsx, atualize o script para:
+- inside the components folder, access the Navbar folder and inside the index.tsx file, update the script to:
 
 ```
 
@@ -728,7 +728,7 @@ function NavBar(){
 export default NavBar;
 ```
 
-- E no arquivo style.css
+- And in the style.css file
 
 
 ```
@@ -785,7 +785,7 @@ header{
 
 #### components - MovieScore - index.tsx
 
-- dentro da pasta components, acesse a pasta MovieScore e dentro do arquivo index.tsx, atualize o script para:
+- inside the components folder, access the MovieScore folder and inside the index.tsx file, update the script to:
 
 ```
 import MovieStars from "components/MovieStars";
@@ -859,7 +859,7 @@ export default MovieScore;
 
 #### components - MovieCard - index.tsx
 
-- dentro da pasta components, acesse a pasta MovieCard e dentro do arquivo index.tsx, atualize o script para:
+- inside the components folder, access the MovieCard folder and inside the index.tsx file, update the script to:
 
 ```
 
@@ -952,7 +952,7 @@ export default MovieCard;
 
 #### components - FormCard - index.tsx
 
-- dentro da pasta components, acesse a pasta FormCard e dentro do arquivo index.tsx, atualize o script para:
+- inside the components folder, access the FormCard folder and inside the index.tsx file, update the script to:
 
 ```
 
@@ -1067,10 +1067,10 @@ export default MovieCard;
  
 ```
 
-- **COMMIT: Concluído**
+- **COMMIT: Concluded**
 
 
 
-## PARABÉNS!
+## CONGRATULATIONS!
 
-![Parabéns!](https://raw.githubusercontent.com/devsuperior/bds-assets/main/img/trophy.png)
+![Congratulations!](https://raw.githubusercontent.com/devsuperior/bds-assets/main/img/trophy.png)
