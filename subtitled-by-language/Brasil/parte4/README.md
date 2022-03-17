@@ -172,7 +172,7 @@ public class MoreTitlesLanguagesService {
 
 ### Controller MoreTitlesLanguagesController
 
-- Crie o Service MoreTitlesLanguagesService
+- Crie o Controller MoreTitlesLanguagesService
 
 ```
 @RestController
