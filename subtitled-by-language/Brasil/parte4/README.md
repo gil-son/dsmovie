@@ -1,30 +1,30 @@
-＃追加-パート4
+# Extra - parte 4
 
-## 免責事項：パート4は私自身の実装であり、自己開発を目的としています。 イベントの一部ではなくなりました。 元のバージョンを確認したい場合は、<a href="https://github.com/devsuperior/sds-dsmovie">sds-dsmovie</a>にアクセスしてください。
+## AVISO: a parte 4, é uma implementação de minha autoria e com o intuito de auto desenvolvimento. Não faz mais parte do evento. Caso queira consultar a versão original, acesse <a href="https://github.com/devsuperior/sds-dsmovie">sds-dsmovie</a>
 
 
-## このステップのプロジェクト目標
--ユーザーが言語に対応するフラグを選択すると、映画のタイトルとWebサイトの言語オプションが増えます
--バックエンド
-   - MovieLanguages
-   - MovieLanguageRepository
-   - MovieLanguageService
-   - MovieLanguageController
-   - import.sql
-- フロントエンド
-   - 戻ってきた
-   - 新しいタイトル言語とのAPI統合
-   - 一部のコンポーネントのリファクタリング
+## Objetivos do projeto para esta etapa
+- Cria mais opções de linguagens para os títulos dos filmes e site, conforme o usuário selecionar a bandeira correspondente a linguagem
+- Backend
+  - MovieLanguages
+  - MovieLanguageRepository
+  - MovieLanguageService
+  - MovieLanguageController
+  - import.sql
+- Frontend
+  - Redux
+  - Integração da API com as novas linguagens de títulos
+  - Refatoramento de alguns componentes
  
 
 
-##バックエンド
+## Backend
 
-### MovieLanguagesエンティティ
+### Entidade MovieLanguages
 
-- MovieLanguagesエンティティを作成します
-- 新しいタイトルの言語が含まれます
-- Movieエンティティと1対1の関係を作成します
+- Crie a entidade MovieLanguages 
+- Vai conter as novas linguagens dos títulos
+- vai fazer uma relação de 1 para 1 com a entidade Movie
 
 ```
 @Entity
@@ -59,9 +59,9 @@ public class MovieLanguage {
 }
 ```
 
-### DTOのMovieLanguageDTOおよびMoreTitlesLanguagesDTO
+### DTOs MovieLanguageDTO e MoreTitlesLanguagesDTO
 
-- MovieLaguageエンティティに対応するDTOであるDTOMovieLanguageDTOを作成します
+- Crie o DTO MovieLanguageDTO que é o DTO correspondente a entidade MovieLaguage
 
 ```
 
@@ -90,8 +90,8 @@ public class MovieLanguageDTO {
 }
 ```
 
-- MovieおよびMovieLanguageにあるプロパティを含める役割を担うMoreTitlesLanguagesDTOを作成します
-- 次に、このDTOは2つのエンティティの結合に使用されるため、そのプロパティが必要です
+- Crie o DTO MoreTitlesLanguagesDTO que será responsável por conter as propriedades que se encontram nas Movie e MovieLanguage
+- A seguir esse DTO será utilizado para um join das duas entidades, entao requer que tenha as suas propriedades
 
 ```
 
@@ -130,9 +130,9 @@ public class MoreTitlesLanguagesDTO {
 ```
 
 
-### リポジトリMovieRepository
+### Repository MovieRepository
 
-- MovieとMovieLanguageのジャンクションに対応するMoreTitlesLanguagesDTOのプロパティを使用して、MovieエンティティをMovieLanguageに結合する@Queryを持つMoreTitlesLanguagesRepositoryインターフェイスを作成します。
+- Crie a interface MoreTitlesLanguagesRepository que vai ter um @Query para fazer um join entre a entidade Movie com a MovieLanguage, utilizando as propriedades do MoreTitlesLanguagesDTO que correspondem a junção de Movie com MovieLanguage
 
 
 ```
@@ -146,9 +146,9 @@ public interface MoreTitlesLanguagesRepository extends JpaRepository<Movie, Long
 ```
 
 
-### サービスMoreTitlesLanguagesService
+### Service MoreTitlesLanguagesService
 
-- MoreTitlesLanguagesServiceサービスを作成します
+- Crie o Service MoreTitlesLanguagesService
 
 ```
 @Service
@@ -170,9 +170,9 @@ public class MoreTitlesLanguagesService {
 }
 ```
 
-### コントローラーMoreTitlesLanguagesController
+### Controller MoreTitlesLanguagesController
 
-- MoreTitlesLanguagesServiceコントローラーを作成します
+- Crie o Controller MoreTitlesLanguagesService
 
 ```
 @RestController
@@ -193,7 +193,7 @@ public class MoreTitlesLanguagesController {
 
 ```
 
-### import.sqlを更新します
+### Atualizar o import.sql
 
 ```
 
@@ -279,15 +279,15 @@ INSERT INTO tb_score(movie_id, user_id, value) VALUES (2, 3, 4.0);
 ```
 
 
-###作成されたエンドポイントをテストします
+### Testar o endpoint criado
 
-- GETメソッドとエンドポイントを使用します。
+- utilizando o método GET e o endpoint:
 
 ```
 http://localhost:8080/full-movies-titles?size=12&page=0
 ```
 
-- 次のjson/payloadが必要です。
+- é esperado o seguinte json/payload:
 
 ```
 {
@@ -446,15 +446,15 @@ http://localhost:8080/full-movies-titles?size=12&page=0
 
 - **COMMIT: More Languages titles**
 
-### フロントエンド
+### Frontend
 
 ### Redux
 
-- Reduxは、JavaScriptアプリケーションの状態を保存するためのライブラリであり、隣接するコンポーネントや個別のコンポーネントの状態を管理します。 <a href="https://redux.js.org">もっと知る</a>
+- Redux é uma biblioteca para armazenamento de estados de aplicações JavaScript, consegue gerenciar o estado de componentes vizinhos e/ou distintos. <a href="https://redux.js.org">Saiba mais</a>
 
-- タイトルの言語の状態を管理するために使用されます
-- 言語に対応するボタンをクリックすると、ReduxはAPIタイトルをフェッチするコンポーネントの新しい値を保存します
-- インストール
+- Vai ser utilizado para gerenciar os estados da linguagens dos títulos
+- Conforme houver um clique no botão que corresponde a linguagem, o Redux vai armazernar um novo valor para o componente que busca os títulos da API
+- Instalação 
 
 ```
 # NPM
@@ -464,8 +464,8 @@ npm install @reduxjs/toolkit
 yarn add @reduxjs/toolkit
 ```
 
-- srcフォルダー内にstoreというフォルダーを作成し、index.jsxというファイルを作成します
-- index.jsxの中には、reduxとストアを使用するための次のスクリプトが含まれています
+- Crie dentro da pasta src uma pasta chamada store e crie um arquivo chamado index.jsx
+- Dentro de index.jsx inclua o seguinte script para a utilização do redux e o store
 
 ```
 import {createStore} from 'redux';
@@ -480,8 +480,8 @@ const store = createStore(
 export default store;
 ```
 
-- srcフォルダー内にreducersというフォルダーを作成し、index.jsというファイルを作成します
-- index.jsx内には、レデューサーを管理およびエクスポートするための次のスクリプトが含まれています（この場合は1つだけです）
+- Crie dentro da pasta src uma pasta chamada reducers e crie um arquivo chamado index.js
+- Dentro de index.jsx inclua o seguinte script para gerenciar e exportar os reducers (nesse caso só há um)
 
 ```
 import {combineReducers} from 'redux';
@@ -502,7 +502,7 @@ const reducers = combineReducers({titleReducer});
 export default reducers;
 ```
 
-- srcフォルダー内およびindex.tsxファイルで、スクリプトを次のように更新します。
+- Dentro da pasta src e no arquivo index.tsx, atualize o script para o seguinte:
 
 ```
 import React from 'react';
@@ -528,9 +528,9 @@ ReactDOM.render(
 
 
 
-### 言語に一致する旗の画像を追加する
+### Adicionar imagens de bandeiras que corresponde a linguagem
 
-下の画像をクリックしてダウンロードしてください。
+Clique nas imagens a baixo e faca o download:
 
 - <a href="https://github.com/gil-son/dsmovie/tree/main/subtitled-by-language/Brasil" ><img  width="5%" src="https://flagicons.lipis.dev/flags/4x3/br.svg" /></a>
 
@@ -540,14 +540,14 @@ ReactDOM.render(
 
 - <a href="https://github.com/gil-son/dsmovie/tree/main/subtitled-by-language/日本" ><img  width="5%" src="https://flagicons.lipis.dev/flags/4x3/jp.svg" /></a>
 
-- src/assets/imgディレクトリにフラグの画像を追加します
+- adicione as imagens das bandeiras no diretório src/assets/img
 
 
-### ユーティリティ、ページ、コンポーネントの更新
+### Atualizando utilitários, páginas e componentes
 
-#### タイプ-movie.ts
+#### types - movie.ts
 
-- typesフォルダーにアクセスし、movie.tsファイルに次のように残します。
+- Acesse a pasta types e no arquivo movie.ts, deixe da seguinte forma:
 
 ```
 export type Movie = {
@@ -575,12 +575,12 @@ export type MoviePage = {
 
 ```
 
-- タイプMovieには、APIを受け取るためのより多くのプロパティが含まれていることに注意してください
+- Observe que o type Movie contem mais propriedades para receber a API
 
 
-#### ページ-リスト-index.ts
+#### pages - Listing - index.ts
 
-- pages / Lintingディレクトリにアクセスし、index.tsファイルに次のように残します。
+- Acesse o diretório pages/Linting e no arquivo index.ts, deixe da seguinte forma:
 
 ```
 import axios from "axios";
@@ -642,13 +642,13 @@ function Listing() {
 export default Listing;
 
 ```
-- APIがタイトル言語で使用されていることに注意してください
+- Repare que agora está sendo utilizada a API com as linguagens dos títulos
 
 
 
 #### components - Navbar - index.tsx
 
-- componentsフォルダー内で、Navbarフォルダーにアクセスし、index.tsxファイル内で、スクリプトを次のように更新します。
+- dentro da pasta components, acesse a pasta Navbar e dentro do arquivo index.tsx, atualize o script para:
 
 ```
 
@@ -728,7 +728,7 @@ function NavBar(){
 export default NavBar;
 ```
 
-- そしてstyle.cssファイルで
+- E no arquivo style.css
 
 
 ```
@@ -783,9 +783,9 @@ header{
 
 
 
-#### コンポーネント-MovieScore-index.tsx
+#### components - MovieScore - index.tsx
 
-- componentsフォルダー内で、MovieScoreフォルダーにアクセスし、index.tsxファイル内で、スクリプトを次のように更新します。
+- dentro da pasta components, acesse a pasta MovieScore e dentro do arquivo index.tsx, atualize o script para:
 
 ```
 import MovieStars from "components/MovieStars";
@@ -857,9 +857,9 @@ export default MovieScore;
 ```
 
 
-#### コンポーネント-MovieCard-index.tsx
+#### components - MovieCard - index.tsx
 
-- componentsフォルダー内で、MovieCardフォルダー内にアクセスし、index.tsxファイル内で、スクリプトを次のように更新します。
+- dentro da pasta components, acesse a pasta MovieCard e dentro do arquivo index.tsx, atualize o script para:
 
 ```
 
@@ -950,9 +950,9 @@ export default MovieCard;
 
 
 
-#### コンポーネント-FormCard-index.tsx
+#### components - FormCard - index.tsx
 
-- componentsフォルダー内で、FormCardフォルダーにアクセスし、index.tsxファイル内で、スクリプトを次のように更新します。
+- dentro da pasta components, acesse a pasta FormCard e dentro do arquivo index.tsx, atualize o script para:
 
 ```
 
@@ -1071,6 +1071,6 @@ export default MovieCard;
 
 
 
-## とても良い!
+## PARABÉNS!
 
-![とても良い!](https://raw.githubusercontent.com/devsuperior/bds-assets/main/img/trophy.png)
+![Parabéns!](https://raw.githubusercontent.com/devsuperior/bds-assets/main/img/trophy.png)
