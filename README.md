@@ -1,5 +1,11 @@
 # dsmovie
 
+<div align="center">
+
+ <img src="https://media.licdn.com/dms/image/v2/C4E22AQH5w5uZceItzQ/feedshare-shrink_800/feedshare-shrink_800/0/1645741228460?e=1747267200&v=beta&t=9rHb5BzQNCQKSJVdkeSPR-geER4da3YN9gm2twS187A" width="60%" />
+</div>
+
+<hr/>
 
 <div align="center">
  <table>
